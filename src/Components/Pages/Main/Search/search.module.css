@@ -1,0 +1,24 @@
+.search_main{
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 40%;
+}
+
+.search_input{
+  background-color: #0067B3;
+  height: 100px;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.search_input input{
+  border: none;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 35px;
+  height: 40px;
+}
