@@ -6,13 +6,16 @@ import { useEffect } from "react";
 import Aos from "aos";
 import "./search.css";
 import "aos/dist/aos.css";
+import { GetTurs } from "../../../../redux/features/searchReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 const Search = () => {
-  // const turs = useSelector((state) => state.initialStateTur.turs)
+  const turs = useSelector((state) => state.turReducer.turs);
+  const dispatch = useDispatch();
   useEffect(() => {
     Aos.init({ duration: 200 });
-  }, []);
+    dispatch(GetTurs());
+  }, [dispatch]);
   return (
     <div
       className={styles.search_main}
@@ -38,12 +41,16 @@ const Search = () => {
 
         <button className={styles.search_btn}>Поиск</button>
       </div>
-      <div>
-        {/* {turs.map((item, index) => {
+      <div className={styles.tur_name}>
+        {turs.map((item, index) => {
           return (
-            <div>{item.front}</div>
-          )
-        })} */}
+            <div data-aos="input-animation" className={styles.search_imgBlock}>
+              <img data-aos="input-animation" className={styles.tur_img} src={`http://localhost:7000/${item.img}`} />
+              <h2>Из {item.from}</h2>
+              <h2>В {item.to}</h2>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
