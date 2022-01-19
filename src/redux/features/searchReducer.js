@@ -4,20 +4,20 @@ const initialStateTur = {
   error: null
 }
 
-export default function application(state = initialStateTur, action) {
+export default function turReducer(state = initialStateTur, action) {
   switch(action.type) {
-    case "tursLoading/pending":
+    case "turs/Loading/pending":
       return {
         ...state,
         loading: true,
       }
-    case "tursLoading/fulfilled":
+    case "turs/Loading/fulfilled":
       return {
         ...state,
         turs: action.payload,
         loading: false
       }
-    case "tursLoading/rejected":
+    case "turs/Loading/rejected":
       return {
         ...state,
         error: action.payload
@@ -29,14 +29,14 @@ export default function application(state = initialStateTur, action) {
 
 export const GetTurs = () => {
   return async (dispatch) => {
-    dispatch({type: "tursLoading/pending"})
+    dispatch({type: "turs/Loading/pending"})
     try {
       const responce = await fetch("http://localhost:7000/turs")
       const turs = await responce.json()
 
-      dispatch({type: "tursLoading/fulfilled", payload: turs})
+      dispatch({type: "turs/Loading/fulfilled", payload: turs})
     } catch (e) {
-      dispatch({type: "tursLoading/rejected", payload: e})
+      dispatch({type: "turs/Loading/rejected", payload: e})
     }
   }
 }
