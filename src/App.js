@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './Components/Layout/Header/Header';
 import './app.module.css'
 import { Route, Routes } from 'react-router-dom';
@@ -9,8 +9,19 @@ import Profile from './Components/Pages/Profile/Profile';
 import Authorization from './Components/Pages/Authorization/Authorization';
 import Contacts from './Components/Pages/Contacts/Contacts';
 import Info from './Components/Pages/Info/Info';
+import Admin from './Components/Pages/Admin/Admin';
+import { useDispatch } from 'react-redux';
+import { getUsers } from './redux/features/usersReducer';
+import Hotels from './Components/Pages/Hotels/Hotels';
 
 const App = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUsers())
+  })
+
   return (
     <div>
       <Routes>
@@ -21,7 +32,9 @@ const App = () => {
           <Route path='/authorization' element={<Authorization />}/>
           <Route path='/contacts' element={<Contacts />}/>
           <Route path='/info' element={<Info />}/>
+          <Route path='/hotels' element={<Hotels />}/>
         </Route>
+        <Route path='/admin' element={<Admin />}/>
       </Routes>
     </div>
   );
