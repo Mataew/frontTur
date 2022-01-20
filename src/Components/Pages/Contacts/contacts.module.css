@@ -1,3 +1,54 @@
-.numbers {
-   
+.contactUs {
+    width: 1200px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactUsText {
+    width: 450px;
+}
+
+.contactUsText h1 {
+    font-size: 45px;
+}
+
+.contactUsText p {
+    font-size: 20px;
+}
+
+.contactUsFirstImage {
+    width: 350px;
+}
+
+.contactUsFirstImage img {
+    width: 100%;
+    height: 500px;
+}
+
+.contactUsSecondImage {
+    width: 350px;
+    margin-top: -70px;
+}
+
+.contactUsSecondImage img {
+    width: 100%;
+    height: 500px;
+}
+
+.findUs {
+    width: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.findUsAdress {
+    width: 150px;
+    font-size: 20px;
+}
+
+.findUsGetInTouch {
+    font-size: 20px;
 }
