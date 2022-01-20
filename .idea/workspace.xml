@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f5b53a6-35f8-4bd5-93ba-23f78b45a7aa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Pages/Company/Company.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Pages/Company/Company.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Pages/Company/company.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Pages/Company/company.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +34,7 @@
       <option name="presentableId" value="Default" />
       <updated>1642587047325</updated>
       <workItem from="1642587051730" duration="5594000" />
+      <workItem from="1642678946439" duration="494000" />
     </task>
     <servers />
   </component>
