@@ -36,19 +36,26 @@
   text-align: center;
   border: none;
   background-color: white;
-  border-radius: 20px;
   margin-top: 35px;
-  height: 40px;
+  height: 30px;
+}
+.search_input {
+  width: 1200px;
+  border-radius: 40px;
 }
 .search_btn {
-  margin-top: 35px;
-  height: 40px;
-  width: 80px;
-  background-color: yellow;
-  border-radius: 30%;
+  height: 70px;
+  width: 164px;
+  background-color: #FFFFFF;
+}
+.Search_btn_block {
+  margin-right: 50px;
+  margin-top: 13px;
+  text-align: center;
 }
 .search_title{
-  background-color: #0067B3;
+  /* background-color: #0067B3; */
+  background-color: red;
   height: 100px;
   width: 90%;
   margin: auto;
@@ -61,27 +68,22 @@
 }
 .search_titleTwo {
   margin-left: 85px;
-  margin-top: 50px;
   color: white;
 }
 .search_titleThree {
   margin-left: 180px;
-  margin-top: 50px;
   color: white;
 }
 .search_titleFour {
-  margin-left: 150px;
-  margin-top: 50px;
+  margin-left: 140px;
   color: white;
 }
 .search_titleFive {
   margin-left: 135px;
-  margin-top: 50px;
   color: white;
 }
 .search_titleSix {
   margin-left: 165px;
-  margin-top: 50px;
   color: white;
 }
 .search_text {
@@ -103,16 +105,96 @@
     opacity:1;
   }
 }
+.wrapper_tur_img {
+  width: 250px;
+  margin: auto;
+  height: 150px;
+}
 .tur_img {
   width: 100%;
   height: 100%;
 }
 .search_imgBlock {
+  font-family: "Roboto", sans-serif;
+  position: relative;
   margin-top: 50px;
-  width: 400px;
-  height: 250px;
+  width: 350px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: rgba(211, 211, 211, 0.31);
 }
 .tur_name {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+.h_search {
+  margin-top: 25px;
+  margin-left: 30px;
+  position: absolute;
+  display: flex;
+  background-color: rgba(211, 211, 211, 0.31);
+  width: 300px;
+}
+.search_text {
+  margin-left: 30px;
+}
+@keyframes info{
+  0%{
+    opacity:0;
+  }
+  100% {
+    opacity:70%;
+  }
+}
+.hotel_title {
+  font-size: 25px;
+}
+.tur_to {
+  margin-right: 200px;
+}
+.tur_price {
+  margin-left: 200px;
+}
+.tur_buy {
+  margin-right: 200px;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+}
+.tur_buy:hover {
+  background-color: #1689db;
+  transition: 0.5s;
+}
+.img_busket {
+  width: 25px;
+  height: 15px;
+}
+.Search_main_Block {
+  display: flex;
+  box-sizing: border-box;
+}
+.search_inputTwo {
+  width: 200px;
+  border-radius: 20px;
+  padding-right: 85px;
+}
+.search_inputThree {
+  width: 200px;
+  border-radius: 20px;
+  padding-right: 85px;
+}
+.search_inputFour {
+  padding-left: 40px;
+  width: 140px;
+  border-radius: 20px;
+}
+.search_inputFive {
+  border-radius: 20px;
+  width: 75px;
+}
+.search_inputSix {
+  border-radius: 20px;
+  width: 75px;
 }

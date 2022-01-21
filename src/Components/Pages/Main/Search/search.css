@@ -7,12 +7,30 @@
   animation: show 2s 1; /* Указываем название анимации, её время и количество повторов*/
   animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
   animation-delay: 0.3s; /* Задержка перед началом */
-
 }
 @keyframes show{
   0%{
     opacity:0;
     padding-left: 500px;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+[data-aos="img-animation"] {
+
+}
+[data-aos="img-animation"].aos-animate {
+  opacity:1; /*Элемент полностью прозрачный (невидимый)*/
+  transition: 0.5s; /*Скорость перехода состояния элемента*/
+  animation: img 2s 1; /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+  animation-delay: 0.3s; /* Задержка перед началом */
+}
+@keyframes img{
+  0%{
+    transform: scale(0.2);
   }
   100% {
     opacity:1;
