@@ -1,12 +1,5 @@
 .admin_main{
-  width: 900px;
+  width: 90%;
   margin: auto;
   text-align: center;
-}
-.admin_profile_img{
-  width: 250px;
-  height: 250px;
-  border-radius: 250px;
-  margin: auto;
-  background-color: #FFD53D;
 }
