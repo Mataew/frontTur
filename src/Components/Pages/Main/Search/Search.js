@@ -8,6 +8,7 @@ import "./search.css";
 import "aos/dist/aos.css";
 import { GetTurs } from "../../../../redux/features/searchReducer";
 import { GetByTur } from "../../../../redux/features/turDesk";
+import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 
 const Search = () => {
@@ -153,26 +154,34 @@ const Search = () => {
               star = "⭐"
              }
           return (
+            // <div data-aos="img-animation" className={styles.search_imgBlock}>
+            //   <div className={styles.wrapper_tur_img}>
+            //     <img
+            //       data-aos="img-animation"
+            //       className={styles.tur_img}
+            //       src={`http://localhost:7000/${item.img}`}
+            //       alt=""
+            //     />
+            //   </div>
+            //   <h4>{item.hotel.name}</h4>
+            //   <h4>Рейтинг {star}</h4>
+            //   <h5 className={styles.tur_to}>{item.to}</h5>
+            //   <h5 className={styles.tur_to}>
+            //     {item.data}, {item.night} ночей
+            //   </h5>
+            //   <h5 className={styles.tur_to}>Вылет: {item.from}</h5>
+            //   <h5 className={styles.tur_to}>Человек: {item.amount}</h5>
+            //   <Link to="/Hotels" className={styles.tur_buy} onClick={() => GetByTurs(item._id)}>Подробнее</Link>
+            //   <h2 className={styles.tur_price}>{item.price} руб</h2>
+            // </div>
             <div data-aos="img-animation" className={styles.search_imgBlock}>
-              <div className={styles.wrapper_tur_img}>
-                <img
-                  data-aos="img-animation"
-                  className={styles.tur_img}
-                  src={`http://localhost:7000/${item.img}`}
-                  alt=""
-                />
-              </div>
-              <h4>{item.hotel.name}</h4>
-              <h4>Рейтинг {star}</h4>
-              <h5 className={styles.tur_to}>{item.to}</h5>
-              <h5 className={styles.tur_to}>
-                {item.data}, {item.night} ночей
-              </h5>
-              <h5 className={styles.tur_to}>Вылет: {item.from}</h5>
-              <h5 className={styles.tur_to}>Человек: {item.amount}</h5>
-              <button className={styles.tur_buy} onClick={() => GetByTurs(item._id)}>Подробнее</button>
-              <h2 className={styles.tur_price}>{item.price} руб</h2>
+            <div className={ styles.tours_cards_wrapper }>
+            <img className={styles.tur_img} src={`http://localhost:7000/${item.img}`}  alt="daun"/>
             </div>
+            <div className={ styles.absolute_display}>
+            <h3 className={ styles.tours_cards_title}><Link to="/Hotels" className={styles.tur_buy} onClick={() => GetByTurs(item._id)}>{item.to}</Link></h3>
+            </div>  
+          </div>
           );
         })}
       </div>
