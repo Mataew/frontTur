@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authUser, createUser } from "../../../redux/reducerAuthorization";
 import "./Authorization.css";
 
 // Страница авторизации
 const Authorization = () => {
   const [Switch, setSwitch] = useState("form-box");
   const [bodyClass, setBodyClass] = useState("body");
+
+  
 
   const Active = () => {
     setSwitch("form-box active");
@@ -15,6 +19,53 @@ const Authorization = () => {
     setSwitch("form-box");
     setBodyClass("body");
   };
+
+  const dispatch = useDispatch()
+
+  const signingUp = useSelector(state => state.authorizatonReducer.signingUp)
+  const err = useSelector(state => state.authorizatonReducer.error)
+  console.log(err);
+  const signingIn = useSelector(state => state.authorizatonReducer.signingIn)
+  const [login, setLogin] = useState('')
+  const [password, setPassword] = useState('')
+  const [firstName, setFirstname] = useState('')
+  const [lastName, setLastname] = useState('')
+  const [authLogin, setAuthLogin] = useState('')
+  const [authPassword, setAuthPassword] = useState('')
+ 
+
+  const handleAuthLogin = (e) => {
+    setAuthLogin(e.target.value)
+  }
+
+  const handleAuthPassword = (e) => {
+    setAuthPassword(e.target.value)
+  }
+
+
+  const handleChangeLogin = (e) => {
+    setLogin(e.target.value)
+  }
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+  const handleChengeFirstname = (e) => {
+    setFirstname(e.target.value)
+  }
+  const handleChengeLastname = (e) => {
+    setLastname(e.target.value)
+  }
+
+  
+  const handleSubmitAuth = () => {
+    dispatch(authUser(login, password))
+  }
+
+const handleSubmit = () => {
+   dispatch(createUser(login, password, firstName, lastName))
+}
 
   return (
     <div className={bodyClass}>
@@ -36,10 +87,13 @@ const Authorization = () => {
         <div className={Switch}>
           <form action="#" className="form form_signin">
             <h3 className="form__title">Вход</h3>
+            {err}
             <p>
               <input
                 className="form__input"
                 placeholder="Email"
+                value={authLogin}
+                onChange={handleAuthLogin}
                 type="email"
               ></input>
             </p>
@@ -47,20 +101,28 @@ const Authorization = () => {
               <input
                 className="form__input"
                 placeholder="Password"
+                value={authPassword}
+                onChange={handleAuthPassword}
                 type="password"
               ></input>
             </p>
             <p>
-              <button className="form__btn">Войти</button>
+              <button
+              disabled={signingIn}
+              onClick={handleSubmitAuth}
+              className="form__btn">Войти</button>
             </p>
           </form>
 
           <form action="#" className="form form_signup">
             <h3 className="form__title">Регистрация</h3>
+            {err}
             <p>
               <input
                 className="form__input"
                 placeholder="Email"
+                value={login}
+                onChange={handleChangeLogin}
                 type="email"
               ></input>
             </p>
@@ -68,11 +130,33 @@ const Authorization = () => {
               <input
                 className="form__input"
                 placeholder="Password"
+                value={password}
+                onChange={handleChangePassword}
                 type="password"
               ></input>
             </p>
             <p>
-              <button className="form__btn form__btn_signup">
+              <input
+                className="form__input"
+                placeholder="Firstname"
+                value={firstName}
+                onChange={handleChengeFirstname}
+                type="text"
+              ></input>
+            </p>            <p>
+              <input
+                className="form__input"
+                placeholder="Lastname"
+                value={lastName}
+                onChange={handleChengeLastname}
+                type="text"
+              ></input>
+            </p>
+            <p>
+              <button
+              disabled={signingUp}
+              onClick={handleSubmit}
+              className="form__btn form__btn_signup">
                 Зарегистрироваться
               </button>
             </p>

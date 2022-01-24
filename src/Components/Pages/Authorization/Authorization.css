@@ -144,11 +144,11 @@
 .signup-btn:hover {
     background-color: #FFD53D;
     transition: 1s;
-    padding: 15px;
+    padding: 11px 22px;
 }
 
 .signin-btn:hover {
     background-color: #40B0DF;
     transition: 1s;
-    padding: 15px;
+    padding: 11px 22px;
 }
