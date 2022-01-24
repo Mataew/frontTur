@@ -40,3 +40,35 @@ export const GetTurs = () => {
     }
   }
 }
+
+export const deleteTour = (id) => {
+  return async (dispatch) => {
+    try {
+      await fetch(`http://localhost:7000/turs/${id}`, { method: "DELETE"})
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
+
+export const updateTours = (id, inputFrom, inputTo, inputPrice) => {
+  return async (dispatch) => {
+    const options = {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: inputFrom,
+        to: inputTo,
+        price: inputPrice
+      })
+    }
+    try {
+      await fetch(`http://localhost:7000/turs/${id}`, options)
+      dispatch({ type: 'tours/patch/fulfilled', payload: { id, inputFrom, inputTo, inputPrice } })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}

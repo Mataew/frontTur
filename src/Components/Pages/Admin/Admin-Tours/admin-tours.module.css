@@ -29,7 +29,7 @@
   font-family: Gilroy;
   padding: 20px;
   text-align: left;
-  font-size: 23px;
+  font-size: 17px;
   position: fixed;
   opacity: 0;
 }
@@ -42,5 +42,25 @@
 .tours_cards_wrapper:hover .tours_cards_title{
   opacity: 0;
   transition: 1s;
+}
+
+.delete_tour{
+  border: none;
+  background-color: #ca2129;
+  color: white;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.update_input{
+  border: 1px solid #40B0DF;
+  font-size: 17px;
+  -moz-appearance: textfield;
+  width: 100%;
+  background-color: rgba(64, 176, 223, 0.63);
+}
+.update_input::-webkit-inner-spin-button {
+  display: none;
 }
 
