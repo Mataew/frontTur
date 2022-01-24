@@ -8,7 +8,7 @@ import "./search.css";
 import "aos/dist/aos.css";
 import { GetTurs } from "../../../../redux/features/searchReducer";
 import { GetByTur } from "../../../../redux/features/turDesk";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 const Search = () => {
@@ -25,7 +25,7 @@ const Search = () => {
   const [people, setPeople] = useState("");
 
   const [inputTurs, setinputTurs] = useState();
-  // tur.data.split("").reverse().join("").includes(data) 
+  // tur.data.split("").reverse().join("").includes(data)
 
   const search = () => {
     const filtur = turs.filter((tur) => {
@@ -40,10 +40,10 @@ const Search = () => {
     console.log(filtur);
     setinputTurs(filtur);
   };
-  
+
   const GetByTurs = (id) => {
-    dispatch(GetByTur(id))
-  }
+    dispatch(GetByTur(id));
+  };
 
   const filteredTurs = !inputTurs ? turs : inputTurs;
 
@@ -60,71 +60,82 @@ const Search = () => {
       className={styles.search_main}
       style={{ backgroundImage: `url("${fon}")` }}
     >
-      {/* <div data-aos="input-animation" className={styles.search_title}> */}
-
-      {/* </div> */}
       <div className={styles.Search_main_Block}>
+        {/* <div data-aos="input-animation" className={styles.search_title}>
+      <div className={styles.titles}><span className={styles.search_titleTwo}>Откуда</span><span className={styles.search_titleThree}>Куда</span></div>
+      </div> */}
         <div data-aos="input-animation" className={styles.search_input}>
-          {/* <span className={styles.search_titleTwo}>Откуда</span> */}
-          <input
-          className={styles.search_inputTwo}
-            type="text"
-            list="fromCities"
-            placeholder="Из какого города..."
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-          />
-          <datalist id="fromCities">
-            <option value="Грозный" />
-            <option value="Москва" />
-          </datalist>
+          <div data-aos="input-animation" className={styles.search_m}>
+            {/* <span className={styles.search_titleTwo}>Откуда</span> */}
+            <div className={styles.titles}>
+              <h3 className={styles.search_titleTwo}>Откуда</h3>
+              <h3 className={styles.search_titleThree}>Куда</h3>
+              <h3 className={styles.search_titleFour}>Дата вылета</h3>
+              <h3 className={styles.search_titleFive}>Ночей</h3>
+              <h3 className={styles.search_titleSix}>Человек</h3>
+            </div>
+            <div data-aos="input-animation" className={styles.search_inp}>
+              <input
+                className={styles.search_inputTwo}
+                type="text"
+                list="fromCities"
+                placeholder="Из какого города..."
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+              />
+              <datalist id="fromCities">
+                <option value="Грозный" />
+                <option value="Москва" />
+              </datalist>
 
-          {/* <span className={styles.search_titleThree}>Куда</span> */}
-          <input
-          className={styles.search_inputThree}
-            type="text"
-            list="toCities"
-            placeholder="В какой город..."
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-          />
-          <datalist id="toCities">
-            <option value="Анталья" />
-            <option value="Хургада" />
-            <option value="Самуи" />
-          </datalist>
-          {/* <span className={styles.search_titleFour}>Дата вылета</span> */}
-          <input
-          className={styles.search_inputFour}
-          list="data"
-            // type="date"
-            placeholder="Дата"
-            value={data}
-            onChange={(e) => setData(e.target.value)}
-          />
-          <datalist id="data">
-            <option value="26.09.2022" />
-            <option value="18.06.2022" />
-            <option value="07.07.2022" />
-          </datalist>
+              {/* <span className={styles.search_titleThree}>Куда</span> */}
+              <input
+                className={styles.search_inputThree}
+                type="text"
+                list="toCities"
+                placeholder="В какой город..."
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
+              />
+              <datalist id="toCities">
+                <option value="Анталья" />
+                <option value="Хургада" />
+                <option value="Самуи" />
+              </datalist>
+              {/* <span className={styles.search_titleFour}>Дата вылета</span> */}
+              <input
+                className={styles.search_inputFour}
+                list="data"
+                // type="date"
+                placeholder="Дата"
+                value={data}
+                onChange={(e) => setData(e.target.value)}
+              />
+              <datalist id="data">
+                <option value="26.09.2022" />
+                <option value="18.06.2022" />
+                <option value="07.07.2022" />
+              </datalist>
 
-          {/* <span className={styles.search_titleFive}>Ночей</span> */}
-          <input
-          className={styles.search_inputFive}
-            type="number"
-            placeholder="КОЛ-ВО"
-            value={night}
-            onChange={(e) => setNight(e.target.value)}
-          />
+              {/* <span className={styles.search_titleFive}>Ночей</span> */}
+              <input
+                className={styles.search_inputFive}
+                type="number"
+                placeholder="КОЛ-ВО"
+                value={night}
+                onChange={(e) => setNight(e.target.value)}
+              />
 
-          {/* <span className={styles.search_titleSix}>Человек</span> */}
-          <input
-          className={styles.search_inputSix}
-            type="number"
-            placeholder="КОЛ-ВО"
-            value={people}
-            onChange={(e) => setPeople(e.target.value)}
-          />
+              {/* <span className={styles.search_titleSix}>Человек</span> */}
+              <input
+                className={styles.search_inputSix}
+                type="number"
+                placeholder="КОЛ-ВО"
+                value={people}
+                onChange={(e) => setPeople(e.target.value)}
+              />
+            </div>
+          </div>
         </div>
         <div className={styles.Search_btn_block}>
           <button
@@ -132,27 +143,27 @@ const Search = () => {
             onClick={search}
             disabled={!from && !to && !data && !night && !people}
           >
-           <h1> Поиск</h1>
+            <h1> Поиск</h1>
           </button>
         </div>
       </div>
       <div className={styles.tur_name}>
         {filteredTurs.map((item, index) => {
-             if(item.hotel.rating === 5) {
-               star = "⭐⭐⭐⭐⭐"
-             }
-             if(item.hotel.rating === 4) {
-              star = "⭐⭐⭐⭐"
-             }
-             if(item.hotel.rating === 3) {
-              star = "⭐⭐⭐"
-             }
-             if(item.hotel.rating === 2) {
-              star = "⭐⭐"
-             }
-             if(item.hotel.rating === 1) {
-              star = "⭐"
-             }
+          if (item.hotel.rating === 5) {
+            star = "⭐⭐⭐⭐⭐";
+          }
+          if (item.hotel.rating === 4) {
+            star = "⭐⭐⭐⭐";
+          }
+          if (item.hotel.rating === 3) {
+            star = "⭐⭐⭐";
+          }
+          if (item.hotel.rating === 2) {
+            star = "⭐⭐";
+          }
+          if (item.hotel.rating === 1) {
+            star = "⭐";
+          }
           return (
             // <div data-aos="img-animation" className={styles.search_imgBlock}>
             //   <div className={styles.wrapper_tur_img}>
@@ -175,13 +186,25 @@ const Search = () => {
             //   <h2 className={styles.tur_price}>{item.price} руб</h2>
             // </div>
             <div data-aos="img-animation" className={styles.search_imgBlock}>
-            <div className={ styles.tours_cards_wrapper }>
-            <img className={styles.tur_img} src={`http://localhost:7000/${item.img}`}  alt="daun"/>
+              <div className={styles.tours_cards_wrapper}>
+                <img
+                  className={styles.tur_img}
+                  src={`http://localhost:7000/${item.img}`}
+                  alt="daun"
+                />
+              </div>
+              <div className={styles.absolute_display}>
+                <h3 className={styles.tours_cards_title}>
+                  <Link
+                    to="/Hotels"
+                    className={styles.tur_buy}
+                    onClick={() => GetByTurs(item._id)}
+                  >
+                    {item.to}
+                  </Link>
+                </h3>
+              </div>
             </div>
-            <div className={ styles.absolute_display}>
-            <h3 className={ styles.tours_cards_title}><Link to="/Hotels" className={styles.tur_buy} onClick={() => GetByTurs(item._id)}>{item.to}</Link></h3>
-            </div>  
-          </div>
           );
         })}
       </div>

@@ -6,14 +6,15 @@
   padding-top: 50px;
   padding-bottom: 40%;
 }
-
 .search_input{
   background-color: #0067B3;
-  height: 100px;
+  height: 150px;
   width: 90%;
   margin: auto;
   display: flex;
   justify-content: space-around;
+  width: 1200px;
+  border-radius: 40px;
 
   opacity:0; /*Элемент полностью прозрачный (невидимый)*/
   transition: 0.5s; /*Скорость перехода состояния элемента*/
@@ -39,13 +40,10 @@
   margin-top: 35px;
   height: 30px;
 }
-.search_input {
-  width: 1200px;
-  border-radius: 40px;
-}
 .search_btn {
   height: 70px;
   width: 164px;
+  margin-top: 35px;
   background-color: #FFFFFF;
 }
 .Search_btn_block {
@@ -54,8 +52,6 @@
   text-align: center;
 }
 .search_title{
-  /* background-color: #0067B3; */
-  background-color: red;
   height: 100px;
   width: 90%;
   margin: auto;
@@ -67,23 +63,26 @@
   animation-delay: 0.3s; /* Задержка перед началом */
 }
 .search_titleTwo {
-  margin-left: 85px;
+  margin-top: 30px;
   color: white;
 }
 .search_titleThree {
-  margin-left: 180px;
+  margin-left: 175px;
+  margin-top: 30px;
   color: white;
 }
 .search_titleFour {
-  margin-left: 140px;
+  margin-left: 235px;
+  margin-top: 30px;
   color: white;
 }
 .search_titleFive {
-  margin-left: 135px;
+  margin-left: 25px;
+  margin-top: 30px;
   color: white;
 }
 .search_titleSix {
-  margin-left: 165px;
+  margin-top: 30px;
   color: white;
 }
 .search_text {
@@ -173,27 +172,30 @@
   box-sizing: border-box;
 }
 .search_inputTwo {
-  width: 200px;
+  flex: 0;
   border-radius: 20px;
   padding-right: 85px;
 }
 .search_inputThree {
-  width: 200px;
+  flex: 0;
   border-radius: 20px;
   padding-right: 85px;
 }
 .search_inputFour {
-  padding-left: 40px;
-  width: 140px;
+  padding-left: 20px;
+  width: 100px;
+  margin-left: 75px;
   border-radius: 20px;
 }
 .search_inputFive {
   border-radius: 20px;
+  margin-left: 25px;
   width: 75px;
 }
 .search_inputSix {
   border-radius: 20px;
   width: 75px;
+  margin-right: 50px;
 }
 .tours_cards_title {
   display: flex;
@@ -212,4 +214,27 @@
   background-color: #40B0DF;
   display: flex;
   justify-content: center;
+}
+.titles {
+  display: flex;
+  background-color: #0067B3;
+  height: 50px;
+  width: 90%;
+  margin: auto;
+  justify-content: space-around;
+}
+.search_inp {
+  background-color: #0067B3;
+  margin: auto;
+  display: flex;
+  width: 1200px;
+  border-radius: 40px;
+  justify-content: space-around;
+  opacity:0; /*Элемент полностью прозрачный (невидимый)*/
+  transition: 0.5s; /*Скорость перехода состояния элемента*/
+  animation: show 2s 1; /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+  animation-delay: 0.3s; /* Задержка перед началом */
+
+  margin: auto;
 }
