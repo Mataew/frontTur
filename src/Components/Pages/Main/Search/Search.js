@@ -67,12 +67,8 @@ const Search = () => {
       style={{ backgroundImage: `url("${fon}")` }}
     >
       <div className={styles.Search_main_Block}>
-        {/* <div data-aos="input-animation" className={styles.search_title}>
-      <div className={styles.titles}><span className={styles.search_titleTwo}>Откуда</span><span className={styles.search_titleThree}>Куда</span></div>
-      </div> */}
         <div data-aos="input-animation" className={styles.search_input}>
           <div data-aos="input-animation" className={styles.search_m}>
-            {/* <span className={styles.search_titleTwo}>Откуда</span> */}
             <div className={styles.titles}>
               <h3 className={styles.search_titleTwo}>Откуда</h3>
               <h3 className={styles.search_titleThree}>Куда</h3>
@@ -94,7 +90,7 @@ const Search = () => {
                 <option value="Москва" />
               </datalist>
 
-              {/* <span className={styles.search_titleThree}>Куда</span> */}
+              
               <input
                 className={styles.search_inputThree}
                 type="text"
@@ -108,11 +104,10 @@ const Search = () => {
                 <option value="Хургада" />
                 <option value="Самуи" />
               </datalist>
-              {/* <span className={styles.search_titleFour}>Дата вылета</span> */}
+              
               <input
                 className={styles.search_inputFour}
                 list="data"
-                // type="date"
                 placeholder="Дата"
                 value={data}
                 onChange={(e) => setData(e.target.value)}
@@ -123,7 +118,6 @@ const Search = () => {
                 <option value="07.07.2022" />
               </datalist>
 
-              {/* <span className={styles.search_titleFive}>Ночей</span> */}
               <input
                 className={styles.search_inputFive}
                 type="number"
@@ -132,7 +126,6 @@ const Search = () => {
                 onChange={(e) => setNight(e.target.value)}
               />
 
-              {/* <span className={styles.search_titleSix}>Человек</span> */}
               <input
                 className={styles.search_inputSix}
                 type="number"
