@@ -25,7 +25,9 @@ const Search = () => {
   const [people, setPeople] = useState("");
 
   const [inputTurs, setinputTurs] = useState();
-  // tur.data.split("").reverse().join("").includes(data)
+
+  const [err, setErr] = useState("");
+  
 
   const search = () => {
     const filtur = turs.filter((tur) => {
@@ -38,7 +40,8 @@ const Search = () => {
       );
     });
     console.log(filtur);
-    setinputTurs(filtur);
+    setinputTurs(filtur ? filtur : "");
+    setErr(filtur.length !== 0 ? "" : <div className={styles.empty}><h1>Ничего не найдено</h1></div>)
   };
 
   const GetByTurs = (id) => {
@@ -46,8 +49,11 @@ const Search = () => {
   };
 
   const filteredTurs = !inputTurs ? turs : inputTurs;
+  
+  const e = err
 
   console.log(setinputTurs);
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -165,26 +171,6 @@ const Search = () => {
             star = "⭐";
           }
           return (
-            // <div data-aos="img-animation" className={styles.search_imgBlock}>
-            //   <div className={styles.wrapper_tur_img}>
-            //     <img
-            //       data-aos="img-animation"
-            //       className={styles.tur_img}
-            //       src={`http://localhost:7000/${item.img}`}
-            //       alt=""
-            //     />
-            //   </div>
-            //   <h4>{item.hotel.name}</h4>
-            //   <h4>Рейтинг {star}</h4>
-            //   <h5 className={styles.tur_to}>{item.to}</h5>
-            //   <h5 className={styles.tur_to}>
-            //     {item.data}, {item.night} ночей
-            //   </h5>
-            //   <h5 className={styles.tur_to}>Вылет: {item.from}</h5>
-            //   <h5 className={styles.tur_to}>Человек: {item.amount}</h5>
-            //   <Link to="/Hotels" className={styles.tur_buy} onClick={() => GetByTurs(item._id)}>Подробнее</Link>
-            //   <h2 className={styles.tur_price}>{item.price} руб</h2>
-            // </div>
             <div data-aos="img-animation" className={styles.search_imgBlock}>
               <div className={styles.tours_cards_wrapper}>
                 <img
@@ -208,6 +194,7 @@ const Search = () => {
           );
         })}
       </div>
+      {e}
     </div>
   );
 };

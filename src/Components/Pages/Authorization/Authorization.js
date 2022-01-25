@@ -81,7 +81,7 @@ const handleSubmit = () => {
             <h2 className="block-item__title">У вас нет аккаунта?</h2>
             <button className="block-item__btn signup-btn" onClick={Active}>
               Зарегистрироваться
-            </button>
+            </button>[]
           </section>
         </div>
         <div className={Switch}>
