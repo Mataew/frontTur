@@ -6,8 +6,9 @@ import  turReducer  from "./features/searchReducer"
 import authorizatonReducer from './reducerAuthorization';
 import usersReducer from './features/usersReducer';
 import byTurDesk from './features/turDesk';
+import profReducer from './features/profileReducer';
 
-const combineReducer = combineReducers({turReducer, authorizatonReducer, usersReducer, byTurDesk});
+const combineReducer = combineReducers({turReducer, authorizatonReducer, usersReducer, byTurDesk, profReducer});
 
 const store = createStore(combineReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
 
