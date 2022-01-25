@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { authUser, createUser } from "../../../redux/reducerAuthorization";
 
 import "./Authorization.css";
@@ -34,7 +35,10 @@ const Authorization = () => {
   const [lastName, setLastname] = useState('')
   const [authLogin, setAuthLogin] = useState('')
   const [authPassword, setAuthPassword] = useState('')
- 
+  const [loginDirty, setLoginDirty] = useState(false)
+  const [passwordDirty, setPasswordDirty] = useState(false)
+  const [loginError, setLoginError] = useState('Эмайл не может быть пустым')
+  const [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
 
   const handleAuthLogin = (e) => {
     setAuthLogin(e.target.value)
@@ -67,7 +71,16 @@ const Authorization = () => {
 
 const handleSubmit = () => {
    dispatch(createUser(login, password, firstName, lastName))
+   setLogin('')
+   setPassword('')
+   setFirstname('')
+   setLastname('')
+   if (check){
+    setSwitch("form-box");
+    setBodyClass("body");
+   }
 }
+
 
   return (
     <div className={bodyClass}>
@@ -109,10 +122,10 @@ const handleSubmit = () => {
               ></input>
             </p>
             <p>
-              <button
+              <Link to='/'
               disabled={false}
               onClick={handleSubmitAuth}
-              className="form__btn">Войти</button>
+              className="form__btn"> Войти</Link>
             </p>
           </form>
 
