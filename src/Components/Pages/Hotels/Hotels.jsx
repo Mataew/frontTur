@@ -4,12 +4,9 @@ import {useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {useEffect} from 'react';
 import { GetByTur } from '../../../redux/features/turDesk';
-import { useParams } from 'react-router-dom';
 
 const Hotels = () => {
   const tur = useSelector((state) => state.byTurDesk.byTur);
-
-  const id = useParams('id');
 
   const dispatch = useDispatch()
   const id = useParams('id');
