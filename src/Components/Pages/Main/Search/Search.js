@@ -182,7 +182,7 @@ const Search = () => {
               <div className={styles.absolute_display}>
                 <h3 className={styles.tours_cards_title}>
                   <Link
-                    to="/Hotels"
+                    to={`/hotels/${item._id}`}
                     className={styles.tur_buy}
                     onClick={() => GetByTurs(item._id)}
                   >
