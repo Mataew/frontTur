@@ -6,13 +6,14 @@
   text-align: center;
   margin-top: 5px;
   width: 350px;
-  height: 495px;
   background-color: #ffd622;
   border-radius: 10px;
   padding: 15px;
-  position: relative;
+  /* position: relative; */
   position: fixed;
-  left: 72.3%;
+  left: 70.3%;
+  /* overflow: hidden; */
+  /* overflow: scroll; */
 }
 
 .Profile__wrapper:hover {
@@ -49,7 +50,6 @@
 }
 
 .Profile__wrapper__scroll__order {
-    background-color: black;
     width: 320px;
     height: 150px;
     margin-top: -5px;
@@ -65,7 +65,7 @@
 }
 
 .Profile__wrapper__logOut {
-    margin-top: 5%;
+    margin-top: 15%;
 }
 
 .Profile__wrapper__logOut a:hover {
@@ -82,7 +82,7 @@
   padding: 5px;
 }
 
-.bg {
+.Profile__bg {
   position: fixed;
   width: 50px;
   background-color: #ffd622;
@@ -92,7 +92,7 @@
   cursor: pointer;
 }
 
-.bg:hover {
+.Profile__bg:hover {
   transition: 0.5s;
   background-color: #0067b3;
 }
@@ -102,10 +102,12 @@ img {
   height: 100%;
 }
 
-.bg__icon {
+.Profile__bg__icon {
   width: 50px;
 }
 
-.bg__icon:hover {
+.Profile__bg__icon:hover {
   transition: 0.1s;
 }
+
+
