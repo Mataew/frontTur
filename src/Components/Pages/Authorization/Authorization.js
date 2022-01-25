@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser, createUser } from "../../../redux/reducerAuthorization";
+
 import "./Authorization.css";
 
 // Страница авторизации
@@ -61,7 +62,7 @@ const Authorization = () => {
 
   
   const handleSubmitAuth = () => {
-    dispatch(authUser(login, password))
+    dispatch(authUser(authLogin, authPassword))
   }
 
 const handleSubmit = () => {
@@ -88,14 +89,14 @@ const handleSubmit = () => {
         <div className={Switch}>
           <form action="#" className="form form_signin">
             <h3 className="form__title">Вход</h3>
-            {err}
             <p>
+            {err}
               <input
                 className="form__input"
-                placeholder="Email"
+                placeholder="login"
                 value={authLogin}
                 onChange={handleAuthLogin}
-                type="email"
+                type="text"
               ></input>
             </p>
             <p>
