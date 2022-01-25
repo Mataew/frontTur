@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./profile.module.css";
 import { Link } from "react-router-dom";
 import ProfileSlider from "./profileSlider/profileSlider";
-
+import { userLoad } from "../../../redux/features/profileReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 // страница для Профиля
 const Profile = () => {
+  const token = localStorage.getItem("token");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userLoad(token));
+  }, []);
+
   const [disable, setDisable] = useState(false);
 
   const handleCleanToken = () => {
     localStorage.removeItem("token");
   };
 
+  const user = useSelector(state => state.profReducer.user)
+console.log(user);
   const handleCloseProfile = () => {
     setDisable(false);
   };
@@ -37,10 +48,10 @@ const Profile = () => {
             />
           </div>
           <div className={styles.Profile__wrapper__profBlock__name}>
-            <p>cscs</p>
+            <p>имя фамилия</p>
           </div>
           <div className={styles.Profile__wrapper__profBlock__email}>
-            <p>cc</p>
+            <p>daun5545@gmail.com</p>
           </div>
         </div>
         <div className={styles.Profile__wrapper__scroll}>
