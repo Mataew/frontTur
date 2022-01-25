@@ -4,6 +4,10 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 
 const Header = () => {
+
+  const token = localStorage.getToken
+
+  console.log(token)
   return (
     <header>
       <ul className={ styles.nav }>

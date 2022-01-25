@@ -36,7 +36,6 @@ const App = () => {
         </Route>
         <Route path='/admin' element={<Admin />}/>
       </Routes>
-
     </div>
   );
 };
