@@ -22,6 +22,7 @@ const Authorization = () => {
 
   const dispatch = useDispatch()
 
+  const check = useSelector(state => state.authorizatonReducer.check)
   const signingUp = useSelector(state => state.authorizatonReducer.signingUp)
   const err = useSelector(state => state.authorizatonReducer.error)
   console.log(err);
