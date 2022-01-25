@@ -6,7 +6,7 @@ const initialState = {
   
   check: false
 };
- 
+
 export default function auth(state = initialState, action) { 
   switch (action.type) { 
     case "application/signup/pending": 
