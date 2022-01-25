@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 import { getUsers } from './redux/features/usersReducer';
 import Hotels from './Components/Pages/Hotels/Hotels';
 import AdminLayout from './Components/Pages/Admin/Admin-Layout';
-import AddTour from './Components/Pages/Admin/Admin-Tours/Add-Tour';
+import AddTour from './Components/Pages/Admin/Admin-Tours/Add-Tour/Add-Tour';
 import AdminInfo from './Components/Pages/Admin/Admin-Info/Admin-Info';
 import AdminTours from './Components/Pages/Admin/Admin-Tours/Admin-Tours';
 import AdminUsers from './Components/Pages/Admin/Admin-Users/Admin-Users';

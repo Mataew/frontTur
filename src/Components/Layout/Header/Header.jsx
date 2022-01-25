@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './header.module.css'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
+import Profile from '../../Pages/Profile/Profile';
 
 const Header = () => {
 
-  const token = localStorage.getToken
+  const token = localStorage.getItem("token");
 
   console.log(token)
   return (
@@ -16,7 +17,7 @@ const Header = () => {
         <li><Link to='/'><img className={ styles.header_logo } src={ logo } alt=""/></Link></li>
         <li className={ styles.nav_item}><NavLink to='/contacts'>КОНТАКТЫ</NavLink></li>
       </ul>
-      <Link to='/authorization' className={ styles.authorization }>ВОЙТИ</Link>
+      { token ? <Link to='/'><Profile /></Link> : <Link to='/authorization' className={ styles.authorization }>ВОЙТИ</Link>}
     </header>
   );
 };
