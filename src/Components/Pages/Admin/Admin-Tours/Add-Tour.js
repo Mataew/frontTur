@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const AddTour = () => {
   return (
-    <div className={ styles.add_tour }>
-      <Link to='/addTour'>+</Link>
+    <div>
+
     </div>
   );
 };

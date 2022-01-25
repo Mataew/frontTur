@@ -13,6 +13,12 @@ import Admin from './Components/Pages/Admin/Admin';
 import { useDispatch } from 'react-redux';
 import { getUsers } from './redux/features/usersReducer';
 import Hotels from './Components/Pages/Hotels/Hotels';
+import AdminLayout from './Components/Pages/Admin/Admin-Layout';
+import AddTour from './Components/Pages/Admin/Admin-Tours/Add-Tour';
+import AdminInfo from './Components/Pages/Admin/Admin-Info/Admin-Info';
+import AdminTours from './Components/Pages/Admin/Admin-Tours/Admin-Tours';
+import AdminUsers from './Components/Pages/Admin/Admin-Users/Admin-Users';
+import AdminMain from './Components/Pages/Admin/Admin-Main/Admin-Main';
 
 const App = () => {
 
@@ -34,8 +40,22 @@ const App = () => {
           <Route path='/info' element={<Info />}/>
           <Route path='/hotels' element={<Hotels />}/>
         </Route>
-        <Route path='/admin' element={<Admin />}/>
+        <Route path='/admin' element={ <AdminLayout/>}>
+          <Route path='/admin' element={ <AdminMain/>}/>
+          <Route path='/admin/adminTours' element={<AdminTours/>}/>
+          <Route path='/admin/adminUsers' element={<AdminUsers/>}/>
+          <Route path='/admin/addTours' element={<AddTour/>}/>
+        </Route>
       </Routes>
+
+      {/*<Routes>*/}
+      {/*  <Route path='/admin' element={ <AdminLayout/>}>*/}
+      {/*    <Route path='/admin' element={ <AdminMain/>}/>*/}
+      {/*    <Route path='/adminTours' element={<AdminTours/>}/>*/}
+      {/*    <Route path='/adminUsers' element={<AdminUsers/>}/>*/}
+      {/*  </Route>*/}
+      {/*</Routes>*/}
+
     </div>
   );
 };
