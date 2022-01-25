@@ -12,12 +12,6 @@ const AdminInfo = (props) => {
     dispatch(getUsers())
     props.setRender('admin-users')
   }
-  const handleTours = () => {
-    props.setRender('admin-tours')
-  }
-  const handleAdmin = () => {
-    props.setRender('main')
-  }
 
   return (
     <div>
@@ -28,9 +22,9 @@ const AdminInfo = (props) => {
       </div>
       <div className={ styles.admin_wrapper_nav}>
         <ul className={ styles.admin_nav }>
-          <li onClick={ () => handleAdmin() }>ИНФОРМАЦИЯ О САЙТЕ</li>
-          <li onClick={ () => handleUsers() }>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</li>
-          <li onClick={ () => handleTours()}>СПИСОК ТУРОВ</li>
+          <li><NavLink to='/admin'>ИНФОРМАЦИЯ О САЙТЕ</NavLink></li>
+          <li><Link to='/admin/adminUsers'>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</Link></li>
+          <li><Link to='/admin/adminTours'>СПИСОК ТУРОВ</Link></li>
         </ul>
       </div>
     </div>

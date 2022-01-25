@@ -7,6 +7,7 @@ import turReducer, {
 } from '../../../../redux/features/searchReducer';
 import styles from './admin-tours.module.css'
 import AddTour from './Add-Tour';
+import { Link } from 'react-router-dom';
 
 const AdminTours = () => {
 
@@ -73,7 +74,9 @@ const AdminTours = () => {
           </div>
         )
       })}
-      <AddTour />
+      <div className={ styles.add_tour }>
+        <Link to='/admin/addTours'>+</Link>
+      </div>
     </div>
   );
 };
