@@ -6,6 +6,7 @@ import turReducer, {
   updateTours
 } from '../../../../redux/features/searchReducer';
 import styles from './admin-tours.module.css'
+import AddTour from './Add-Tour';
 
 const AdminTours = () => {
 
@@ -72,6 +73,7 @@ const AdminTours = () => {
           </div>
         )
       })}
+      <AddTour />
     </div>
   );
 };
