@@ -2,7 +2,9 @@ const initialState = {
   signingUp: false,
   signingIn: false,
   error: null,
-  token: null,
+  token: localStorage.getItem('token'),
+  id: localStorage.getItem('id'),
+  check: false
 };
 
 export default function authorizatonReducer(state = initialState, action) {
@@ -18,12 +20,14 @@ export default function authorizatonReducer(state = initialState, action) {
         ...state,
         signingUp: false,
         error: null,
+        check: true
       };
     case "application/signup/rejected":
       return {
         ...state,
         signingUp: false,
         error: action.error,
+        check: false
       };
     case "authorizatonReducer/signin/pending":
       return {
@@ -35,7 +39,8 @@ export default function authorizatonReducer(state = initialState, action) {
       return {
         ...state,
         signingIn: false,
-        token: action.payload.token,
+        id: action.payload.json.id,
+        token: action.payload.json.token,
       };
     case "application/signin/rejected":
       return {
@@ -43,6 +48,11 @@ export default function authorizatonReducer(state = initialState, action) {
         signingIn: false,
         error: action.error,
       };
+      case 'application/logOut/fulfilled':
+        return {
+          ...state,
+          token: null
+        }
     default:
       return state;
   }
@@ -81,13 +91,20 @@ export const authUser = (login, password) => {
       },
     });
     const json = await response.json();
-    console.log(json);
-
-    if (json === 'Неверный логин или пароль') {
-      dispatch({ type: "application/signin/rejected", error: json});
-      console.log(json);
+console.log(json);
+    if (json.error) {
+      dispatch({ type: "application/signin/rejected", error: json.error});
     } else {
-      dispatch({ type: "application/signin/fulfulled", payload: json, error: json.error });
+      dispatch({ type: "application/signin/fulfulled", payload: {json},})
+      localStorage.setItem('token', json.token);
+      localStorage.setItem('id', json.id)
     }
   };
+};
+
+export const logOut = () => { 
+  return async (dispatch) => { 
+    dispatch({ type: "application/logOut/fulfilled" }); 
+    localStorage.clear(); 
+  }; 
 };
