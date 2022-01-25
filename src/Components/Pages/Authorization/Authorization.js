@@ -109,7 +109,7 @@ const handleSubmit = () => {
             </p>
             <p>
               <button
-              disabled={signingIn}
+              disabled={false}
               onClick={handleSubmitAuth}
               className="form__btn">Войти</button>
             </p>
