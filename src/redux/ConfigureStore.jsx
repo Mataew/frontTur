@@ -7,9 +7,10 @@ import authorizatonReducer from './reducerAuthorization';
 import usersReducer from './features/usersReducer';
 import byTurDesk from './features/turDesk';
 import profReducer from './features/profileReducer';
+import hotelsReducer from './features/hotelsReducer';
 
-const combineReducer = combineReducers({turReducer, authorizatonReducer, usersReducer, byTurDesk, profReducer});
+const combineReducer = combineReducers({turReducer, authorizatonReducer, usersReducer, byTurDesk, profReducer, hotelsReducer});
 
-const store = createStore(combineReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
+const store = createStore(combineReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;

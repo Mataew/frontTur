@@ -1,0 +1,21 @@
+.add_tour_main{
+
+}
+.add_tour_inputs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.add_tour_inputs input{
+  width: 40%;
+  margin-top: 10px;
+  height: 40px;
+}
+
+.add_tour_select_hotel{
+  width: 40%;
+  font-size: 17px;
+  margin-top: 10px;
+}
