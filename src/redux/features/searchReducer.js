@@ -72,3 +72,30 @@ export const updateTours = (id, inputFrom, inputTo, inputPrice) => {
     }
   }
 }
+
+export const postTour = (from, to, data, night, amount, hotel, price) => {
+  return async (dispatch) => {
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: from,
+        to: to,
+        data: data,
+        night: night,
+        amount: amount,
+        hotel: hotel,
+        price: price
+      })
+    }
+    try {
+      await fetch(`http://localhost:7000/turs`, options)
+      console.log(from, to, data, night, amount, hotel, price)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
+

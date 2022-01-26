@@ -1,10 +1,12 @@
 .admin_tours_wrapper{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .tours_cards_wrapper{
   width: 30%;
   height: 200px;
+  margin-bottom: 20px;
 }
 .tours_cards_wrapper img{
   width: 100%;
@@ -12,7 +14,7 @@
   display: block;
 }
 .tours_cards_title{
-  position: fixed;
+  position: absolute;
   bottom: 24%;
   font-size: 25px;
   color: white;
@@ -30,7 +32,7 @@
   padding: 20px;
   text-align: left;
   font-size: 17px;
-  position: fixed;
+  position: absolute;
   opacity: 0;
 }
 
