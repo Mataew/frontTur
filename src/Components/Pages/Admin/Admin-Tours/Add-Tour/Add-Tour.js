@@ -48,6 +48,11 @@ const AddTour = () => {
     setHotels(e.target.value)
   }
 
+  const [image, setImage] = useState('')
+  const imageChange = (e) => {
+    setImage(e.target.value[0])
+  }
+
   const addTour = (from, to, data, night, amount, hotel, price) => {
     dispatch(postTour(from, to, data, night, amount, hotel, price))
   }
@@ -74,6 +79,7 @@ const AddTour = () => {
         {/*   выпадающее движение для выбора отеля    */}
 
         <input value={ price } onChange={ (e) => priceChange(e)} placeholder='Цена' type='text'/>
+        <input value={ image } onChange={ (e) => imageChange(e)} type='file'/>
       </div>
       <button onClick={ () => addTour(from, to, data, night, amount, hotel, price)}>Добавить</button>
     </div>
