@@ -35,13 +35,17 @@ const Authorization = () => {
   const [lastName, setLastname] = useState('')
   const [authLogin, setAuthLogin] = useState('')
   const [authPassword, setAuthPassword] = useState('')
-  const [loginDirty, setLoginDirty] = useState(false)
-  const [passwordDirty, setPasswordDirty] = useState(false)
-  const [loginError, setLoginError] = useState('Эмайл не может быть пустым')
-  const [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
+  const [NotEmail, setNotEmail] = useState("");
 
   const handleAuthLogin = (e) => {
     setAuthLogin(e.target.value)
+    const valid =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (!valid.test(String(e.target.value).toLowerCase())) {
+      setNotEmail("Некоректный емаил");
+    } else {
+      setNotEmail("");
+    }
   }
 
   const handleAuthPassword = (e) => {
@@ -51,6 +55,13 @@ const Authorization = () => {
 
   const handleChangeLogin = (e) => {
     setLogin(e.target.value)
+    const valid =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (!valid.test(String(e.target.value).toLowerCase())) {
+      setNotEmail("Некоректный емаил");
+    } else {
+      setNotEmail("");
+    }
   }
 
   const handleChangePassword = (e) => {
@@ -96,14 +107,14 @@ const handleSubmit = () => {
             <h2 className="block-item__title">У вас нет аккаунта?</h2>
             <button className="block-item__btn signup-btn" onClick={Active}>
               Зарегистрироваться
-            </button>[]
+            </button>
           </section>
         </div>
         <div className={Switch}>
           <form action="#" className="form form_signin">
             <h3 className="form__title">Вход</h3>
             <p>
-            {err}
+            {!NotEmail ? <h3 className="error">{err}</h3> : <h3 className="error">{NotEmail}</h3>}
               <input
                 className="form__input"
                 placeholder="login"
@@ -131,7 +142,7 @@ const handleSubmit = () => {
 
           <form action="#" className="form form_signup">
             <h3 className="form__title">Регистрация</h3>
-            {err}
+            {!NotEmail ? <h3 className="error">{err}</h3> : <h3 className="error">{NotEmail}</h3>}
             <p>
               <input
                 className="form__input"
