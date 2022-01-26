@@ -22,7 +22,7 @@ const Profile = () => {
   };
 
   const user = useSelector(state => state.profReducer.user)
-console.log(user);
+
   const handleCloseProfile = () => {
     setDisable(false);
   };
@@ -34,39 +34,48 @@ console.log(user);
   if (disable === true) {
     return (
       <div className={styles.Profile__wrapper}>
-        <div
-          onClick={handleCloseProfile}
-          className={styles.Profile__wrapper__exit}
-        >
-          ❌
-        </div>
-        <div className={styles.Profile__wrapper__profBlock}>
-          <div className={styles.Profile__wrapper__profBlock__img}>
-            <img
-              src="https://cryptor.net/sites/default/files/pictures/picture-425-1516178707.png"
-              alt=""
-            />
+        {user.map((item) => {
+          return(
+            <>
+            <div
+            onClick={handleCloseProfile}
+            className={styles.Profile__wrapper__exit}
+          >
+            ❌
           </div>
-          <div className={styles.Profile__wrapper__profBlock__name}>
-            <p>имя фамилия</p>
+          <div className={styles.Profile__wrapper__profBlock}>
+            <div className={styles.Profile__wrapper__profBlock__img}>
+              <img
+                src="https://cryptor.net/sites/default/files/pictures/picture-425-1516178707.png"
+                alt=""
+              />
+            </div>
+            <div className={styles.Profile__wrapper__profBlock__name}>
+              <p>{item.firstName} {item.lastName}</p>
+            </div>
+            <div className={styles.Profile__wrapper__profBlock__email}>
+              <p>{item.login}</p>
+            </div>
           </div>
-          <div className={styles.Profile__wrapper__profBlock__email}>
-            <p>daun5545@gmail.com</p>
+          <div className={styles.Profile__wrapper__scroll}>
+            <div className={styles.Profile__wrapper__scroll__title}>
+              <p>Мои брони:</p>
+            </div>
+            <div className={styles.Profile__wrapper__scroll__order}>
+              <ProfileSlider>
+  
+              </ProfileSlider>
+            </div>
           </div>
-        </div>
-        <div className={styles.Profile__wrapper__scroll}>
-          <div className={styles.Profile__wrapper__scroll__title}>
-            <p>Мои брони:</p>
+          <div className={styles.Profile__wrapper__logOut}>
+            <Link to="/" onClick={() => handleCleanToken()}>
+              Выйти из аккаунта
+            </Link>
           </div>
-          <div className={styles.Profile__wrapper__scroll__order}>
-            <ProfileSlider />
-          </div>
-        </div>
-        <div className={styles.Profile__wrapper__logOut}>
-          <Link to="/" onClick={() => handleCleanToken()}>
-            Выйти из аккаунта
-          </Link>
-        </div>
+          </>
+          )
+        })}
+
       </div>
     );
   } else if (disable === false) {
