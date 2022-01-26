@@ -14,7 +14,6 @@
 
 .mainBlock p {
     color: white;
-    letter-spacing: 0.2em;
 }
 
 .contactUs {
@@ -71,10 +70,12 @@
   margin: 100px auto;
   display: flex;
   justify-content: space-between;
+  background-color: #40afdfad;
+  padding: 50px 40px;
 }
 
 .findUsAdress {
-  width: 150px;
+  width: 200px;
   font-size: 20px;
 }
 
