@@ -18,13 +18,14 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 80%;
+    background-color: #40afdfad;
+    padding: 50px 0;
 }
 
   .tours_cards_wrapper{
     width: 400px;
     height: 200px;
     position: relative;
-    margin-bottom: 100px;
     overflow: hidden;
     transition: .6s;
   }
