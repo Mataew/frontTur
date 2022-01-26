@@ -12,10 +12,28 @@
   width: 40%;
   margin-top: 10px;
   height: 40px;
+  font-size: 16px;
+  padding-left: 5px;
 }
 
 .add_tour_select_hotel{
   width: 40%;
   font-size: 17px;
   margin-top: 10px;
+  padding: 10px 0px;
+}
+
+.add_tour_button{
+  margin-bottom: 20px;
+  background-color: #0aae38;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  font-size: 20px;
+  border-radius: 15px;
+}
+.add_tour_button:hover{
+  box-shadow: 0px 0px 4px 0px black;
+  background-color: #15ca47;
+  transition: 0.2s;
 }

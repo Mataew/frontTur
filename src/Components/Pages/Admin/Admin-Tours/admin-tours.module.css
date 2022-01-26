@@ -2,11 +2,14 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 0 5px;
 }
 .tours_cards_wrapper{
   width: 30%;
   height: 200px;
   margin-bottom: 20px;
+  position: relative;
+  box-shadow: 0 0 4px 0 black;
 }
 .tours_cards_wrapper img{
   width: 100%;
@@ -19,12 +22,12 @@
   font-size: 25px;
   color: white;
   padding: 10px 30px;
-  width: 27%;
+  width: 100%;
   background-color: #40B0DF;
 }
 
 .hover_display{
-  width: 27%;
+  width: 100%;
   background-color: rgba(255, 213, 61, 0.76);
   bottom: 13%;
   color: white;
@@ -83,4 +86,20 @@
 .add_tour:hover{
   background-color: rgba(128, 128, 128, 0.46);
   transition: 0.5s;
+}
+
+.add_tour_inputs input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.update_button{
+  background-color: #15ca47;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-top: 5px;
 }
