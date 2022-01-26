@@ -10,8 +10,6 @@ const Admin = () => {
   return (
     <div className={ styles.admin_main }>
       <AdminInfo />
-
-
     </div>
 
 
