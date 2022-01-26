@@ -38,7 +38,6 @@ export const getUsers = () => {
     try {
       const response = await fetch("http://localhost:7000/users")
       const users = await response.json()
-      console.log(users)
       dispatch({type: "users/loading/fulfilled", payload: users})
     } catch (e) {
       console.log(e)

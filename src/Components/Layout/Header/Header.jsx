@@ -17,7 +17,7 @@ const Header = () => {
         <li><Link to='/'><img className={ styles.header_logo } src={ logo } alt=""/></Link></li>
         <li className={ styles.nav_item}><NavLink to='/contacts'>КОНТАКТЫ</NavLink></li>
       </ul>
-      { token ? <Link to='/'><Profile /></Link> : <Link to='/authorization' className={ styles.authorization }>ВОЙТИ</Link>}
+      { token ? <Profile /> : <Link to='/authorization' className={ styles.authorization }>ВОЙТИ</Link>}
     </header>
   );
 };
