@@ -3,6 +3,7 @@ import styles from './add-tour.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { hotelsLoad } from '../../../../../redux/features/hotelsReducer';
 import { TextField } from '@mui/material';
+import { postTour } from '../../../../../redux/features/searchReducer';
 
 const AddTour = () => {
 
@@ -47,6 +48,10 @@ const AddTour = () => {
     setHotels(e.target.value)
   }
 
+  const addTour = (from, to, data, night, amount, hotel, price) => {
+    dispatch(postTour(from, to, data, night, amount, hotel, price))
+  }
+
   return (
     <div className={ styles.add_tour_main}>
       <h1>Добавление тура</h1>
@@ -59,6 +64,7 @@ const AddTour = () => {
 
         {/*   выпадающее движение для выбора отеля    */}
         <select className={ styles.add_tour_select_hotel} value={ hotel } onChange={ (e) => hotelChange(e)}>
+          <option  hidden='Выберите отель' value="Выберите отель">Выберите отель</option>
           { hotels.map((item) => {
             return (
               <option value={ item._id}>{item.name}</option>
@@ -69,7 +75,7 @@ const AddTour = () => {
 
         <input value={ price } onChange={ (e) => priceChange(e)} placeholder='Цена' type='text'/>
       </div>
-      <button>Добавить</button>
+      <button onClick={ () => addTour(from, to, data, night, amount, hotel, price)}>Добавить</button>
     </div>
   );
 };
