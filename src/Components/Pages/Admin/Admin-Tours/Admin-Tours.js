@@ -66,8 +66,8 @@ const AdminTours = () => {
                 </>
                 :
                 <>
-                  <button onClick={ handleCheckInput }>Изменить</button>
-                  <button className={ styles.delete_tour } onClick={ () => deleteTours(item._id)}>Удалить</button>
+                  <button className={ styles.update_button }  onClick={ handleCheckInput }>ИЗМЕНИТЬ</button>
+                  <button className={ styles.delete_tour } onClick={ () => deleteTours(item._id)}>УДАЛИТЬ</button>
                 </>
               }
             </div>

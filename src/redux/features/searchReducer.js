@@ -1,7 +1,8 @@
 const initialStateTur = {
   turs: [],
   loading: false,
-  error: null
+  error: null,
+  deleting: false
 }
 
 export default function turReducer(state = initialStateTur, action) {
@@ -21,6 +22,21 @@ export default function turReducer(state = initialStateTur, action) {
       return {
         ...state,
         error: action.payload
+      }
+    case "turs/delete/fulfilled":
+      return {
+        ...state,
+        turs: state.turs.filter((item) => {
+          if (item._id !== action.payload._id){
+            return item
+          }
+        }),
+        deleting: true
+      }
+    case "turs/delete/pending":
+      return {
+        ...state,
+        deleting: false
       }
     default:
       return state;
@@ -43,8 +59,12 @@ export const GetTurs = () => {
 
 export const deleteTour = (id) => {
   return async (dispatch) => {
+    dispatch({type: "turs/delete/pending"})
     try {
-      await fetch(`http://localhost:7000/turs/${id}`, { method: "DELETE"})
+      const deleteTour = await fetch(`http://localhost:7000/turs/${id}`, { method: "DELETE"})
+      const tour = await deleteTour.json()
+
+      dispatch({type: "turs/delete/fulfilled", payload: tour})
     } catch (e) {
       console.log(e)
     }
@@ -73,9 +93,9 @@ export const updateTours = (id, inputFrom, inputTo, inputPrice) => {
   }
 }
 
-export const postTour = (from, to, data, night, amount, hotel, price) => {
+export const postTour = (from, to, data, night, amount, hotel, price, image) => {
   return async (dispatch) => {
-    const options = {
+    const postOptions = {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -91,8 +111,18 @@ export const postTour = (from, to, data, night, amount, hotel, price) => {
       })
     }
     try {
-      await fetch(`http://localhost:7000/turs`, options)
-      console.log(from, to, data, night, amount, hotel, price)
+      const response = await fetch(`http://localhost:7000/turs`, postOptions)
+      const tour = await response.json()
+
+      const formData = new FormData()
+      formData.append('img', image)
+
+      const patchOption = {
+        method: "PATCH",
+        body: formData
+      }
+      await fetch(`http://localhost:7000/turs/${tour._id}/avatar`, patchOption)
+
     } catch (e) {
       console.log(e)
     }

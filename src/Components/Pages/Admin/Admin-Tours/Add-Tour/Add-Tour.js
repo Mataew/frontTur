@@ -50,11 +50,19 @@ const AddTour = () => {
 
   const [image, setImage] = useState('')
   const imageChange = (e) => {
-    setImage(e.target.value[0])
+    setImage(e.target.files[0])
   }
 
-  const addTour = (from, to, data, night, amount, hotel, price) => {
-    dispatch(postTour(from, to, data, night, amount, hotel, price))
+  const addTour = () => {
+    dispatch(postTour(from, to, data, night, amount, hotel, price, image))
+    setHotels('')
+    setFrom('')
+    setImage('')
+    setAmount('')
+    setData('')
+    setTo('')
+    setNight('')
+    setPrice('')
   }
 
   return (
@@ -63,9 +71,9 @@ const AddTour = () => {
       <div className={ styles.add_tour_inputs}>
         <input value={ from } onChange={ (e) => fromChange(e)} placeholder='Откуда' type='text'/>
         <input value={ to } onChange={ (e) => toChange(e)} placeholder='Куда' type='text'/>
-        <input value={ data } onChange={ (e) => dataChange(e)} placeholder='Дата вылета' type='text'/>
-        <input value={ night } onChange={ (e) => nightChange(e)} placeholder='Количество ночей' type='text'/>
-        <input value={ amount } onChange={ (e) => amountChange(e)} placeholder='Количество человек' type='text'/>
+        <input value={ data } onChange={ (e) => dataChange(e)} placeholder='Дата вылета' type='date'/>
+        <input value={ night } className={ styles.number_input} onChange={ (e) => nightChange(e)} placeholder='Количество ночей' type='number'/>
+        <input value={ amount } onChange={ (e) => amountChange(e)} placeholder='Количество человек' type='number'/>
 
         {/*   выпадающее движение для выбора отеля    */}
         <select className={ styles.add_tour_select_hotel} value={ hotel } onChange={ (e) => hotelChange(e)}>
@@ -78,10 +86,10 @@ const AddTour = () => {
         </select>
         {/*   выпадающее движение для выбора отеля    */}
 
-        <input value={ price } onChange={ (e) => priceChange(e)} placeholder='Цена' type='text'/>
-        <input value={ image } onChange={ (e) => imageChange(e)} type='file'/>
+        <input value={ price } onChange={ (e) => priceChange(e)} placeholder='Цена' type='number'/>
+        <input onChange={ (e) => imageChange(e)} type='file'/>
       </div>
-      <button onClick={ () => addTour(from, to, data, night, amount, hotel, price)}>Добавить</button>
+      <button className={ styles.add_tour_button } onClick={ () => addTour()}>Добавить</button>
     </div>
   );
 };
