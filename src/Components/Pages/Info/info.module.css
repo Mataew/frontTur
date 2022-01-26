@@ -1,35 +1,67 @@
+.tours_main {
+ background-image: url('https://www.firestock.ru/download/s/50ubju84hdnklxm/photodune-3417976.jpg');
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: 0 -250px;
+ width: 100%;
+ padding: 50px 0;
+ margin-bottom: -15%;
+}
+
+.tours_main h1 {
+  color: rgb(255, 213, 61);
+}
+
 .tours_wrapper {
-    margin: 50px auto 300px auto;
+    margin: 10px auto 300px auto;
     display: flex;
-    justify-content: space-between;
-    width: 1100px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
 }
 
   .tours_cards_wrapper{
     width: 400px;
     height: 200px;
     position: relative;
+    margin-bottom: 100px;
+    overflow: hidden;
+    transition: .6s;
   }
   .tours_cards_wrapper img{
     width: 100%;
     height: 100%;
     display: block;
+    transition: .6s;
   }
+
+  .tours_cards_wrapper:hover img{
+    width: 120%;
+    height: 120%;
+    overflow: hidden;
+  }
+
+  .transition {
+    transition: .3s;
+  }
+
   .tours_cards_title{
     position: relative;
-    bottom: 70%;
+    bottom: 35%;
     font-size: 25px;
     color: white;
     padding: 10px 30px;
     width: 100%;
-    background-color: #40B0DF;
+    /* background-color: #40B0DF; */
+    background-color: rgba(255, 213, 61, 0.76);
   }
   
   .hover_display{
     width: 100%;
-    height: 100px;
-    background-color: rgba(255, 213, 61, 0.76);
-    bottom: 15%;
+    height: 120px;
+    /* background-color: rgba(255, 213, 61, 0.76); */
+    background-color: #40B0DF;
+    bottom: -5%;
     color: white;
     font-family: Gilroy;
     padding: 20px;
@@ -37,16 +69,17 @@
     font-size: 17px;
     position: absolute;
     opacity: 0;
+    transition: .6s;
   }
   
   .tours_cards_wrapper:hover .hover_display{
-    opacity: 1;
-    transition-duration: 1s;
-    bottom: 28.3%;
+    opacity: 0.9;
+    transition-duration: 0.6s;
+    bottom: 0%;
   }
   .tours_cards_wrapper:hover .tours_cards_title{
     opacity: 0;
-    transition: 1s;
+    transition: 0.3s;
   }
   
   .delete_tour{
@@ -75,7 +108,11 @@
     text-align: center;
   }
 
-  h1 {
-    text-align: center;
-    margin: 80px 0 80px 0;
-  }
+.tours_map_img h1 {
+  margin-bottom: 70px;
+}
+
+.tours_best_offers {
+  text-align: center;
+  margin: 50px 0 80px 0;
+}
