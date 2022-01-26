@@ -1,3 +1,81 @@
-.main {
+.tours_wrapper {
     margin: 50px auto 300px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 1100px;
 }
+
+  .tours_cards_wrapper{
+    width: 400px;
+    height: 200px;
+    position: relative;
+  }
+  .tours_cards_wrapper img{
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .tours_cards_title{
+    position: relative;
+    bottom: 70%;
+    font-size: 25px;
+    color: white;
+    padding: 10px 30px;
+    width: 100%;
+    background-color: #40B0DF;
+  }
+  
+  .hover_display{
+    width: 100%;
+    height: 100px;
+    background-color: rgba(255, 213, 61, 0.76);
+    bottom: 15%;
+    color: white;
+    font-family: Gilroy;
+    padding: 20px;
+    text-align: left;
+    font-size: 17px;
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .tours_cards_wrapper:hover .hover_display{
+    opacity: 1;
+    transition-duration: 1s;
+    bottom: 28.3%;
+  }
+  .tours_cards_wrapper:hover .tours_cards_title{
+    opacity: 0;
+    transition: 1s;
+  }
+  
+  .delete_tour{
+    border: none;
+    background-color: #ca2129;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .update_input{
+    border: 1px solid #40B0DF;
+    font-size: 17px;
+    -moz-appearance: textfield;
+    width: 100%;
+    background-color: rgba(64, 176, 223, 0.63);
+  }
+  .update_input::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  .tours_map_img {
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 80px 0 80px 0;
+  }

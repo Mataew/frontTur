@@ -1,21 +1,34 @@
 .footerMain {
   max-width: 100%;
-  background-image: url("https://picsy.ru/images/photos/1200/1/pejzazh-snezhnykh-gor-34637.jpg");
+  background-color: #0067B3;
+  /* background-image: url("https://picsy.ru/images/photos/1200/1/pejzazh-snezhnykh-gor-34637.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 -250px;
+  opacity: 5;
   padding-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.footerBackGround {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .5;
+    z-index: 2;
 }
 
 /* .footerImg {
     width: 100%;
-    height: 400px;
+    height: 410px;
     opacity: .5;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
-}
+} */
 
-.footerImg img {
+/* .footerImg img {
     width: 100%;
     height: 100%;
 } */
@@ -29,8 +42,13 @@
 
 .footerProfile a {
     margin-left: 950px;
-    color: black;
+    color: white;
     text-decoration: none;
+}
+
+.footerProfile a:hover {
+    color: #333;
+    transition: .3s;
 }
 
 .footerInfo {
@@ -38,6 +56,14 @@
     margin: 30px auto;
     display: flex;
     justify-content: space-between;
+}
+
+.footerInfo h1 {
+    color: #ffd53d;
+}
+
+.footerInfo h3 {
+    color: #ffd53d;
 }
 
 .footerInfoHelp {
@@ -49,6 +75,11 @@
     margin-top: 10px;
     text-decoration: none;
     color: white;
+}
+
+.footerInfo a:hover {
+    color: #333;
+    transition: .3s;
 }
 
 .footerSocialMedia a {
