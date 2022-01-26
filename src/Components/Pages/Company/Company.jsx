@@ -7,27 +7,23 @@ import Main from '../Main/Main'
 const Company = () => {
   return (
     <div className={styles.container}>
-     <nav className={styles.menu}>
-      <ul className={styles.nav}>
-        <li className={styles.nav__item }><Link to='/' className={styles.link}>Главная</Link></li> /
-        <li className={styles.nav__item}><Link to='/company' className={styles.link}>О Компании</Link></li>
-      </ul>
-     </nav>
-      <h1>О компании</h1>
-      <div className={styles.wrapper}>
-      <div className={styles.text__block }>
-        <p>
-          Компания «VayTur» работает с 2002 года.
-          Сейчас это крупная сеть туристических агентств в <span className={styles.text__color}>Москве,
+      <div className={ styles.container_photo }>
+        <h1>О компании</h1>
+        <div className={styles.wrapper}>
+          <div className={styles.text__block }>
+            <p>
+              Компания «VayTur» работает с 2002 года.
+              Сейчас это крупная сеть туристических агентств в <span className={styles.text__color}>Москве,
           Санкт-Петербурге и крупных городах России и СНГ</span>. Все <span className={styles.text__color}>офисы «VayTur»</span> работают по единому стандарту качества, с единой <span className={styles.text__color}>on-line базой туров</span>.
-        </p>
-        <p>С 2014 года «VayTur» входит в состав группы компаний TBS Group.
-          TBS Group объединяет несколько известных брендов, работающих в турбизнесе, и имеет большую базу агентств и клиентов.
-          В группу компаний входят: Крупнейший Центр бронирования туров, сети туристических агентств «TBS», «VayTur», «Мастер отдыха», система поиска
-          и бронирования туров ruSPO.ru, онлайн каталог туров Avianta, электронный каталог отелей, основанный на отзывах и фотографиях туристов – HotelOut,
-          популярнейший Интернет-каталог – Turizm.ru.</p>
-      </div>
-        <div className={styles.img_wrap}><img src="https://cs7.pikabu.ru/post_img/big/2018/10/08/11/1539025979130393239.jpg" alt=""/></div>
+            </p>
+            <p>С 2014 года «VayTur» входит в состав группы компаний TBS Group.
+              TBS Group объединяет несколько известных брендов, работающих в турбизнесе, и имеет большую базу агентств и клиентов.
+              В группу компаний входят: Крупнейший Центр бронирования туров, сети туристических агентств «TBS», «VayTur», «Мастер отдыха», система поиска
+              и бронирования туров ruSPO.ru, онлайн каталог туров Avianta, электронный каталог отелей, основанный на отзывах и фотографиях туристов – HotelOut,
+              популярнейший Интернет-каталог – Turizm.ru.</p>
+          </div>
+          <div className={styles.img_wrap}><img src="https://cs7.pikabu.ru/post_img/big/2018/10/08/11/1539025979130393239.jpg" alt=""/></div>
+        </div>
       </div>
       
       
