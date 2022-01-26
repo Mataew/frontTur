@@ -4,19 +4,77 @@ import {useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {useEffect} from 'react';
 import { GetByTur } from '../../../redux/features/turDesk';
+import { GetTurs } from "../../../redux/features/searchReducer"
+import { BuyTur } from "../../../redux/features/profileReducer"
+import styles from './hotels.module.css'
 
 const Hotels = () => {
   const tur = useSelector((state) => state.byTurDesk.byTur);
-
+  const turs = useSelector((state) => state.turReducer.turs);
+    const id = useParams('id');
+    const filteredTurs = turs.filter((item) => {
+      if(item._id === id.id){
+        return item
+      }
+    })
   const dispatch = useDispatch()
-  const id = useParams('id');
+
+  const BuyTurs = (turId) => {
+    dispatch(BuyTur(turId))
+  }
+
   useEffect(() => {
+   dispatch( GetTurs())
     dispatch(GetByTur(id))
   },[dispatch, id])
-  console.log(id,1111111)
+
+  let star = ""
   return (
     <div>
-      1
+
+      {filteredTurs.map((el) => {
+        if (el.hotel.rating === 5) {
+          star = "⭐⭐⭐⭐⭐";
+        }
+        if (el.hotel.rating === 4) {
+          star = "⭐⭐⭐⭐";
+        }
+        if (el.hotel.rating === 3) {
+          star = "⭐⭐⭐";
+        }
+        if (el.hotel.rating === 2) {
+          star = "⭐⭐";
+        }
+        if (el.hotel.rating === 1) {
+          star = "⭐";
+        }
+            return(
+                <div className={styles.container}>
+                  <div className={styles.cart}>
+                  <div className={styles.block_Turimg}>
+                    <img src={`http://localhost:7000/${el.img}`} alt="" />
+                  </div>
+                  <div className={styles.block_hotelInfo}>
+                    <div className={styles.hotel_cart}>
+                    <h4>Откуда: {el.from}</h4>
+                    <h4>Куда: {el.to}</h4>
+                    <h4>Дата вылета: {el.data}</h4>
+                    <h4>Кол-во ночей: {el.night}</h4>
+                    <h4>Количество: {el.night}</h4>
+                    <h4>Рейтинг: {star}</h4>
+                    <h4>Название Отеля: {el.hotel.name}</h4>
+                    <div className={styles.block_hotelimg}>
+                    <img src={`http://localhost:7000/${el.hotel.img}`} alt="" />
+                    </div>
+                    <h2 className={styles.price}>Цена: {el.price}</h2>
+                    <button onClick={() => BuyTurs(el._id)} className={styles.addToCart}>В корзину</button>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+            )
+          })
+      }
     </div>
   );
 };
