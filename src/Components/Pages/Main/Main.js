@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from './Slider/Slider';
 import Search from './Search/Search';
+import { useDispatch } from 'react-redux';
+import { userLoad } from '../../../redux/features/profileReducer';
 
 const Main = () => {
+  const dispatch = useDispatch()
+
+  const token = localStorage.getItem('token')
+
+  useEffect(() => {
+    // dispatch(getUsers())
+    dispatch(userLoad(token))
+  }, [])
   return (
     <div>
       <Slider />
