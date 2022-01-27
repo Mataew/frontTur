@@ -80,6 +80,7 @@
   transition: 0.3s;
 }
 
+
 .delete_tour {
   border: none;
   background-color: #ca2129;
@@ -114,3 +115,4 @@
   text-align: center;
   margin: 50px 0 80px 0;
 }
+

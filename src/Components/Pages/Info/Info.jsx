@@ -5,7 +5,6 @@ import { GetTurs } from "../../../redux/features/searchReducer";
 import styles from "./info.module.css";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 
-
 // Страница "Полезная информация"
 const Info = () => {
   const dispatch = useDispatch();
@@ -13,8 +12,6 @@ const Info = () => {
   useEffect(() => {
     dispatch(GetTurs());
   }, [dispatch]);
-
-  
 
   const tours = useSelector((state) => state.turReducer.turs);
 

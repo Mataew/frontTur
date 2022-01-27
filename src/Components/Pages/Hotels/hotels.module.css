@@ -1,4 +1,45 @@
 .block_Turimg {
+    width: 800px;
+    height: 600px;
+}
+.block_hotelInfo {
+    background-color: #0067B3;
+    width: 400px;
+    height: 600px;
+}
+.container {
+    display: flex;
+    /* height: 800px; */
+    background-color: #0067B3;
+}
+.block_hotelimg {
+    border: 2px solid black;
+    width: 250px;
+    height: 150px;
+}
+.cart {
+    margin: auto;
+    display: flex;
+    border: 2px solid black;
+}
+.hotel_cart {
+    margin-left: 85px;
+}
+.price {
+    margin-top: 25px;
+    margin-left: 50px;
+}
+.addToCart {
+    margin-left: 40px;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+}
+.addToCart:hover {
+    background-color: #ffd53d;
+}
+=======
+.block_Turimg {
   width: 800px;
   height: 600px;
 }
