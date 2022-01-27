@@ -37,3 +37,13 @@
   background-color: #15ca47;
   transition: 0.2s;
 }
+
+.add_tour_button_disabled{
+  margin-bottom: 20px;
+  background-color: rgba(10, 174, 56, 0.45);
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  font-size: 20px;
+  border-radius: 15px;
+}

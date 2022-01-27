@@ -21,6 +21,18 @@
   margin: 100px auto;
   display: flex;
   justify-content: space-between;
+  color: rgb(255, 213, 61);
+}
+
+.mainBlock p {
+  color: white;
+}
+
+.contactUs {
+  width: 80%;
+  margin: 100px auto;
+  display: flex;
+
   align-items: center;
 }
 
@@ -43,6 +55,8 @@
   position: relative;
   overflow: hidden;
   display: flex;
+  margin-left: 15%;
+  margin-right: 2%;
 }
 
 .contactUsFirstImage img {
@@ -66,21 +80,21 @@
 }
 
 .findUs {
-  width: 50%;
+  width: 90%;
   margin: 100px auto;
   display: flex;
-  justify-content: space-between;
-  background-color: #40afdfad;
+  justify-content: space-around;
   padding: 50px 40px;
 }
 
 .findUsAdress {
-  width: 200px;
+  width: 30%;
   font-size: 20px;
 }
 
 .findUsAdress h1 {
   margin-bottom: 30px;
+  width: 120%;
 }
 
 .findUsAdress p {
@@ -92,6 +106,7 @@
 }
 
 .findUsGetInTouch p {
+  text-align: right;
   margin-top: 30px;
 }
 
