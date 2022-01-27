@@ -71,7 +71,7 @@ const Hotels = () => {
                     <img src={`http://localhost:7000/${el.hotel.img}`} alt="" />
                     </div>
                     <h2 className={styles.price}>Цена: {el.price}</h2>
-                    <Link to={!token ? '/authorization' : '/'} onClick={() => BuyTurs(el._id)} className={styles.addToCart}>В корзину</Link>
+                    <Link to={!token ? '/authorization' : '/profile'} onClick={() => BuyTurs(el._id)} className={styles.addToCart}>В корзину</Link>
                   </div>
                   </div>
                   </div>
