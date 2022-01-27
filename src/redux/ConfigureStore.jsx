@@ -11,6 +11,6 @@ import hotelsReducer from './features/hotelsReducer';
 
 const combineReducer = combineReducers({turReducer, authorizatonReducer, usersReducer, byTurDesk, profReducer, hotelsReducer});
 
-const store = createStore(combineReducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(combineReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
 
 export default store;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Components/Layout/Header/Header';
 import './app.module.css'
 import { Route, Routes } from 'react-router-dom';
@@ -10,7 +10,7 @@ import Authorization from './Components/Pages/Authorization/Authorization';
 import Contacts from './Components/Pages/Contacts/Contacts';
 import Info from './Components/Pages/Info/Info';
 import Admin from './Components/Pages/Admin/Admin';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from './redux/features/usersReducer';
 import Hotels from './Components/Pages/Hotels/Hotels';
 import AdminLayout from './Components/Pages/Admin/Admin-Layout';
@@ -18,6 +18,7 @@ import AdminMain from './Components/Pages/Admin/Admin-Main/Admin-Main';
 import AdminTours from './Components/Pages/Admin/Admin-Tours/Admin-Tours';
 import AdminUsers from './Components/Pages/Admin/Admin-Users/Admin-Users';
 import AddTour from './Components/Pages/Admin/Admin-Tours/Add-Tour/Add-Tour';
+import profReducer, { userLoad } from './redux/features/profileReducer';
 
 const App = () => {
 
@@ -25,7 +26,12 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getUsers())
+    dispatch(userLoad())
   })
+
+
+  const token = useSelector(state => state.profReducer.users)
+  console.log(token)
 
   return (
     <div>
@@ -46,7 +52,6 @@ const App = () => {
           <Route path='/admin/addTours' element={<AddTour/>}/>
         </Route>
       </Routes>
-
     </div>
   );
 };

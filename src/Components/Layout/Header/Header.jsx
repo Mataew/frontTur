@@ -8,7 +8,6 @@ const Header = () => {
 
   const token = localStorage.getItem("token");
 
-  console.log(token)
   return (
     <header>
       <ul className={ styles.nav }>
