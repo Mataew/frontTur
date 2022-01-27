@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetTurs } from "../../../redux/features/searchReducer";
 import styles from "./info.module.css";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
+
 
 // Страница "Полезная информация"
 const Info = () => {
@@ -21,22 +22,9 @@ const Info = () => {
     }
   });
 
+
   return (
     <div className={styles.tours_main}>
-      <div className={styles.tours_map_img}>
-        <h1>Отдых в любой точке мира</h1>
-        <YMaps>
-          <div>
-            <Map
-              width={"100%"}
-              height={"300px"}
-              defaultState={{ center: [43.301412, 45.642478], zoom: 2.1 }}>
-               <Placemark geometry={[43.318369, 45.692419]} />
-               <Placemark geometry={[55.755819, 37.617644]} />
-            </Map>
-          </div>
-        </YMaps>
-      </div>
       <h1 className={styles.tours_best_offers}>Топовые предложения от топового Хусейна</h1>
       <div className={styles.tours_wrapper}>
         {rating.map((item) => {
@@ -54,6 +42,20 @@ const Info = () => {
             </div>
           );
         })}
+      </div>
+      <div className={styles.tours_map_img}>
+        <h1>Отдых в любой точке мира</h1>
+        <YMaps>
+          <div>
+            <Map
+              width={"100%"}
+              height={"300px"}
+              defaultState={{ center: [43.301412, 45.642478], zoom: 2.1 }}>
+               <Placemark geometry={[43.318369, 45.692419]} />
+               <Placemark geometry={[55.755819, 37.617644]} />
+            </Map>
+          </div>
+        </YMaps>
       </div>
     </div>
   );
