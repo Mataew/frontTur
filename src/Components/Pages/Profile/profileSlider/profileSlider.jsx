@@ -11,8 +11,8 @@ import { useSelector } from "react-redux";
 const ProfileSlider = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(cartLoad());
-  }, [dispatch]);
+  
+  }, []);
 
   const cart_Obj = useSelector((state) => state.profReducer.carts);
 
@@ -35,7 +35,6 @@ const ProfileSlider = () => {
         showStatus={false}
         className={styles.Profile_carousel_wrapper}
       >
-{tur.from}
       </Carousel>
     </div>
   );
