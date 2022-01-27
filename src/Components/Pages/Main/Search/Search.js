@@ -10,6 +10,7 @@ import { GetTurs } from "../../../../redux/features/searchReducer";
 import { GetByTur } from "../../../../redux/features/turDesk";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import gsap from 'gsap';
 
 const Search = () => {
   const turs = useSelector((state) => state.turReducer.turs);
@@ -52,12 +53,16 @@ const Search = () => {
   
   const e = err
 
-  console.log(setinputTurs);
+  gsap.to(".absolute_display" , {
+    // borderRadius: 50,
+    x: 100,
+    scale: 1.5,
+    duration:1
+  })
 
 
   const dispatch = useDispatch();
   useEffect(() => {
-    Aos.init({ duration: 200 });
     dispatch(GetTurs());
   }, [dispatch]);
   let star = "";
@@ -67,55 +72,62 @@ const Search = () => {
       style={{ backgroundImage: `url("${fon}")` }}
     >
       <div className={styles.Search_main_Block}>
-        <div data-aos="input-animation" className={styles.search_input}>
-          <div data-aos="input-animation" className={styles.search_m}>
+        <div className={styles.search_input}>
+          <div className={styles.search_m}>
             <div className={styles.titles}>
-              <h3 className={styles.search_titleTwo}>Откуда</h3>
-              <h3 className={styles.search_titleThree}>Куда</h3>
-              <h3 className={styles.search_titleFour}>Дата вылета</h3>
-              <h3 className={styles.search_titleFive}>Ночей</h3>
-              <h3 className={styles.search_titleSix}>Человек</h3>
+              <h3 className={styles.search_titleTwo}>ОТКУДА</h3>
+              <h3 className={styles.search_titleThree}>КУДА</h3>
+              <h3 className={styles.search_titleFour}>ДАТА ВЫЛЕТА</h3>
+              <h3 className={styles.search_titleFive}>НОЧЕЙ</h3>
+              <h3 className={styles.search_titleSix}>ЧЕЛОВЕК</h3>
             </div>
-            <div data-aos="input-animation" className={styles.search_inp}>
+            <div className={styles.search_inp}>
               <input
                 className={styles.search_inputTwo}
                 type="text"
                 list="fromCities"
-                placeholder="Из какого города..."
+                placeholder="ИЗ КАКОГО ГОРОДА..."
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
               />
               <datalist id="fromCities">
-                <option value="Грозный" />
-                <option value="Москва" />
+                { turs.map((item) => {
+                  return (
+                    <option value={ item.from } />
+                  )
+                })}
               </datalist>
 
-              
+
               <input
                 className={styles.search_inputThree}
                 type="text"
                 list="toCities"
-                placeholder="В какой город..."
+                placeholder="В КАКОЙ ГОРОД..."
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
               />
               <datalist id="toCities">
-                <option value="Анталья" />
-                <option value="Хургада" />
-                <option value="Самуи" />
+                { turs.map((item) => {
+                  return (
+                    <option value={ item.to } />
+                  )
+                })}
               </datalist>
-              
+
               <input
                 className={styles.search_inputFour}
                 list="data"
-                placeholder="Дата"
+                placeholder="ДАТА"
                 value={data}
                 onChange={(e) => setData(e.target.value)}
               />
               <datalist id="data">
-                <option value="26.09.2022" />
-                <option value="18.06.2022" />
-                <option value="07.07.2022" />
+                { turs.map((item) => {
+                  return  (
+                    <option value={item.data}/>
+                  )
+                })}
               </datalist>
 
               <input
@@ -148,23 +160,8 @@ const Search = () => {
       </div>
       <div className={styles.tur_name}>
         {filteredTurs.map((item, index) => {
-          if (item.hotel.rating === 5) {
-            star = "⭐⭐⭐⭐⭐";
-          }
-          if (item.hotel.rating === 4) {
-            star = "⭐⭐⭐⭐";
-          }
-          if (item.hotel.rating === 3) {
-            star = "⭐⭐⭐";
-          }
-          if (item.hotel.rating === 2) {
-            star = "⭐⭐";
-          }
-          if (item.hotel.rating === 1) {
-            star = "⭐";
-          }
           return (
-            <div data-aos="img-animation" className={styles.search_imgBlock}>
+            <div className={styles.search_imgBlock}>
               <div className={styles.tours_cards_wrapper}>
                 <img
                   className={styles.tur_img}
@@ -173,15 +170,22 @@ const Search = () => {
                 />
               </div>
               <div className={styles.absolute_display}>
-                <h3 className={styles.tours_cards_title}>
-                  <Link
-                    to={`/hotels/${item._id}`}
-                    className={styles.tur_buy}
-                    onClick={() => GetByTurs(item._id)}
-                  >
-                    {item.to}
-                  </Link>
-                </h3>
+                <Link
+                  to={`/hotels/${item._id}`}
+
+                  onClick={() => GetByTurs(item._id)}
+                >
+                  {item.to}
+                </Link>
+              </div>
+              <div className={styles.absolute_display2}>
+                <Link
+                  to={`/hotels/${item._id}`}
+
+                  onClick={() => GetByTurs(item._id)}
+                >
+                  {item.to}
+                </Link>
               </div>
             </div>
           );

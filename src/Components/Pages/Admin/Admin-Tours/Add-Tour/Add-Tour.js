@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styles from './add-tour.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { hotelsLoad } from '../../../../../redux/features/hotelsReducer';
-import { TextField } from '@mui/material';
 import { postTour } from '../../../../../redux/features/searchReducer';
 
 const AddTour = () => {
@@ -89,7 +88,12 @@ const AddTour = () => {
         <input value={ price } onChange={ (e) => priceChange(e)} placeholder='Цена' type='number'/>
         <input onChange={ (e) => imageChange(e)} type='file'/>
       </div>
-      <button className={ styles.add_tour_button } onClick={ () => addTour()}>Добавить</button>
+      <button
+        className={ from && to && data && night && amount && hotel && price && image ? styles.add_tour_button : styles.add_tour_button_disabled }
+        disabled={ from && to && data && night && amount && hotel && price && image ? false : true }
+        onClick={ () => addTour()}>
+        Добавить
+      </button>
     </div>
   );
 };
