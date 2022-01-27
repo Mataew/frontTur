@@ -172,16 +172,11 @@ const Authorization = () => {
               ></TextField>
             </p>
             <p>
-                <button
-                  className="form__btn"
-                  disabled={
-                    !authLogin || !authPassword || signingIn || NotAuthEmail
-                  }
-                >
-                  <Link to="/" onClick={handleSubmitAuth} className="form__btn">
-                  Войти
-                  </Link>
-                </button>
+
+                    <a href='/' onClick={() => handleSubmitAuth()} className="form__btn">
+                      Войти
+                    </a>
+
             </p>
           </form>
 

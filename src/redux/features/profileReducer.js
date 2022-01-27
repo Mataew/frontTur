@@ -2,7 +2,8 @@ const initialState = {
   user: [],
   error: null,
   loading: false,
-  carts: {}
+  carts: {},
+  deleteCart: false
 };
 
 export default function profReducer (state = initialState, action) {
@@ -28,7 +29,13 @@ export default function profReducer (state = initialState, action) {
         case "cart/delete/fulfilled":
           return {
             ...state,
-            carts: state.carts.id !== action.payload,
+            carts: state.carts.filter((item) => item._id !== action.payload),
+            deleteCart: true
+          };
+        case "cart/delete/pending":
+          return {
+            ...state,
+            deleteCart: false
           };
     default:
       return state;
@@ -91,6 +98,7 @@ try {
 
 export const deleteCart = (id) => {
   return async (dispatch) => {
+    dispatch({ type: "cart/delete/pending" });
     try {
       await fetch(`http://localhost:7000/cart/${id}`, {
         method: "DELETE",

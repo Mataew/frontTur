@@ -34,7 +34,10 @@ const Profile = () => {
 
   const handleDeleteCart = () => {
     dispatch(deleteCart(cart_Obj?._id));
+    window.location.reload();
   };
+
+  const deleting = useSelector(state => state.profReducer.deleteCart)
 
   // {turs.map((tur) => {
   //   return cart_Obj.tur.map((cartTur) => {
@@ -64,11 +67,6 @@ const Profile = () => {
               <div className={styles.Profile__wrapper__profBlock__email}>
                 <p>{item.login}</p>
               </div>
-              <div className={styles.Profile__wrapper__logOut}>
-                <Link to="/" onClick={() => handleCleanToken()}>
-                  Выйти из аккаунта
-                </Link>
-              </div>
             </div>
             <div className={styles.Profile__wrapper__scroll}>
               <h1>Мои брони:</h1>
@@ -76,59 +74,60 @@ const Profile = () => {
                 
                 {turs.map((tur) => {
                   if (cart_Obj) {
-                    
-                  
-                  return cart_Obj?.tur.map((cartTur) => {
-                    if (tur._id === cartTur) {
-                      return (<>
-                        <button className="cart-deleteButton" onClick={() => handleDeleteCart()}>
-                        ⨉
-                      </button>
-                        <div className={styles.container}>
-                          <div className={styles.cart}>
-                            <div className={styles.block_Turimg}>
-                              <img
-                                src={`http://localhost:7000/${tur.img}`}
-                                alt=""
-                              />
-                            </div>
-                            <div className={styles.block_hotelInfo}>
-                              <div className={styles.hotel_cart}>
-                                <h4>Откуда: {tur.from}</h4>
-                                <h4>Куда: {tur.to}</h4>
-                                <h4>Дата вылета: {tur.data}</h4>
-                                <h4>Кол-во ночей: {tur.night}</h4>
-                                <h4>Количество человек: {tur.night}</h4>
-                                {/* <h4>Рейтинг: {star}</h4> */}
-                                <h4>Название Отеля: {tur.hotel.name}</h4>
-                                <div className={styles.block_hotelimg}>
+
+                  return(
+                    !deleting ?
+                      cart_Obj?.tur.map((cartTur) => {
+                        if (tur._id === cartTur) {
+                          return (<>
+                            <button className="cart-deleteButton" onClick={() => handleDeleteCart()}>
+                              ⨉
+                            </button>
+                            <div className={styles.container}>
+                              <div className={styles.cart}>
+                                <div className={styles.block_Turimg}>
                                   <img
-                                    src={`http://localhost:7000/${tur.hotel.img}`}
+                                    src={`http://localhost:7000/${tur.img}`}
                                     alt=""
                                   />
                                 </div>
-                                <h2 className={styles.price}>
-                                  Цена: {tur.price}
-                                </h2>
+                                <div className={styles.block_hotelInfo}>
+                                  <div className={styles.hotel_cart}>
+                                    <h4>Откуда: {tur.from}</h4>
+                                    <h4>Куда: {tur.to}</h4>
+                                    <h4>Дата вылета: {tur.data}</h4>
+                                    <h4>Кол-во ночей: {tur.night}</h4>
+                                    <h4>Количество человек: {tur.night}</h4>
+                                    {/* <h4>Рейтинг: {star}</h4> */}
+                                    <h4>Название Отеля: {tur.hotel.name}</h4>
+                                    <div className={styles.block_hotelimg}>
+                                      <img
+                                        src={`http://localhost:7000/${tur.hotel.img}`}
+                                        alt=""
+                                      />
+                                    </div>
+                                    <h2 className={styles.price}>
+                                      Цена: {tur.price}
+                                    </h2>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                        </>);
-                    }
-                  });} else  {
+                          </>);
+                        }
+                      }) : 'идет удаление')
+                  } else  {
                     return (
                       <div>Пусто</div>
                     )
                   }
                 })}
-                <Carousel
-                  showThumbs={false}
-                  showIndicators={false}
-                  showStatus={false}
-                  className={styles.Profile_carousel_wrapper}
-                ></Carousel>
               </div>
+            </div>
+            <div className={styles.Profile__wrapper__logOut}>
+              <Link to="/" onClick={() => handleCleanToken()}>
+                Выйти из аккаунта
+              </Link>
             </div>
           </>
         );
