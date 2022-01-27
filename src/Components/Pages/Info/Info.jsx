@@ -24,7 +24,7 @@ const Info = () => {
 
   return (
     <div className={styles.tours_main}>
-      <h1 className={styles.tours_best_offers}>Топовые предложения от топового Хусейна</h1>
+      <h1 className={styles.tours_best_offers}>Лучшие предложения</h1>
       <div className={styles.tours_wrapper}>
         {rating.map((item) => {
            
@@ -52,6 +52,16 @@ const Info = () => {
               defaultState={{ center: [43.301412, 45.642478], zoom: 2.1 }}>
                <Placemark geometry={[43.318369, 45.692419]} />
                <Placemark geometry={[55.755819, 37.617644]} />
+               <Placemark geometry={[48.206487, 16.363460]} />
+               <Placemark geometry={[43.585472, 39.723098]} />
+               <Placemark geometry={[41.011218, 28.978178]} />
+               <Placemark geometry={[43.705320, 7.264846]} />
+               <Placemark geometry={[40.714606, -74.002800]} />
+               <Placemark geometry={[30.007279, 31.230730]} />
+               <Placemark geometry={[40.419348, -3.700897]} />
+               <Placemark geometry={[34.016757, -6.840401]} />
+               <Placemark geometry={[39.901698, 116.391433]} />
+               <Placemark geometry={[38.561785, -121.449756]} />
             </Map>
           </div>
         </YMaps>
