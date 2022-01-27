@@ -24,14 +24,13 @@ const App = () => {
 
   const dispatch = useDispatch()
 
+  const token = localStorage.getItem('token')
+
   useEffect(() => {
-    dispatch(getUsers())
-    dispatch(userLoad())
-  })
+    dispatch(userLoad(token))
+  }, [])
+  const user = useSelector(state => state.profReducer.user)
 
-
-  const token = useSelector(state => state.profReducer.users)
-  console.log(token)
 
   return (
     <div>
