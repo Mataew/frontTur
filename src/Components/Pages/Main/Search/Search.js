@@ -171,20 +171,13 @@ const Search = () => {
               </div>
               <div className={styles.absolute_display}>
                 <Link
+                    className={styles.absolute_display_link}
                   to={`/hotels/${item._id}`}
 
                   onClick={() => GetByTurs(item._id)}
                 >
                   {item.to}
-                </Link>
-              </div>
-              <div className={styles.absolute_display2}>
-                <Link
-                  to={`/hotels/${item._id}`}
 
-                  onClick={() => GetByTurs(item._id)}
-                >
-                  {item.to}
                 </Link>
               </div>
             </div>
