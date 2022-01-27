@@ -52,6 +52,9 @@
   background-color: #40B0DF;
   padding: 10px;
   margin: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 300px 10px 400px;
 }
 .back a{
   text-decoration: none;
