@@ -14,6 +14,8 @@ const Info = () => {
     dispatch(GetTurs());
   }, [dispatch]);
 
+  
+
   const tours = useSelector((state) => state.turReducer.turs);
 
   const rating = tours.filter((item) => {
