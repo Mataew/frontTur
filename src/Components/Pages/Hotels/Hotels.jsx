@@ -36,6 +36,8 @@ const Hotels = () => {
   return (
     <div>
 
+      
+
       {filteredTurs.map((el) => {
         if (el.hotel.rating === 5) {
           star = "⭐⭐⭐⭐⭐";
