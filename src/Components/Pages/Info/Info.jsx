@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetTurs } from "../../../redux/features/searchReducer";
 import styles from "./info.module.css";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
+
 
 // Страница "Полезная информация"
 const Info = () => {
@@ -20,6 +21,7 @@ const Info = () => {
       return item;
     }
   });
+
 
   return (
     <div className={styles.tours_main}>
