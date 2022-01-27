@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Components/Layout/Header/Header';
 import './app.module.css'
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './Components/Layout/Layout';
 import Main from './Components/Pages/Main/Main';
 import Company from './Components/Pages/Company/Company';
@@ -31,28 +31,53 @@ const App = () => {
   }, [])
   const user = useSelector(state => state.profReducer.user)
 
-
-  return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path='/' element={<Main />} />
-          <Route path='/company' element={<Company />}/>
-          <Route path='/profile' element={<Profile />}/>
-          <Route path='/authorization' element={<Authorization />}/>
-          <Route path='/contacts' element={<Contacts />}/>
-          <Route path='/info' element={<Info />}/>
-          <Route path='/hotels/:id' element={<Hotels />}/>
-        </Route>
-        <Route path='/admin' element={ <AdminLayout/>}>
-          <Route path='/admin' element={ <AdminMain/>}/>
-          <Route path='/admin/adminTours' element={<AdminTours/>}/>
-          <Route path='/admin/adminUsers' element={<AdminUsers/>}/>
-          <Route path='/admin/addTours' element={<AddTour/>}/>
-        </Route>
-      </Routes>
-    </div>
-  );
+  if (!token) {
+    return (
+      <div>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path='/' element={<Main />} />
+            <Route path='/company' element={<Company />}/>
+            <Route path='/profile' element={<Profile />}/>
+            <Route path='/authorization' element={<Authorization />}/>
+            <Route path='/contacts' element={<Contacts />}/>
+            <Route path='/info' element={<Info />}/>
+            <Route path='/hotels/:id' element={<Hotels />}/>
+          </Route>
+        </Routes>
+      </div>
+    )
+  } else if (token){
+   return (
+     <div>
+       <Routes>
+         <Route path="/" element={<Layout />}>
+           <Route path='/' element={<Main />} />
+           <Route path='/company' element={<Company />}/>
+           <Route path='/profile' element={<Profile />}/>
+           <Route path='/authorization' element={<Navigate to="/profile" replace />}/>
+           <Route path='/contacts' element={<Contacts />}/>
+           <Route path='/info' element={<Info />}/>
+           <Route path='/hotels/:id' element={<Hotels />}/>
+         </Route>
+         <Route path='/admin' element={ <AdminLayout/>}>
+           <Route path='/admin' element={ <AdminMain/>}/>
+           <Route path='/admin/adminTours' element={<AdminTours/>}/>
+           <Route path='/admin/adminUsers' element={<AdminUsers/>}/>
+           <Route path='/admin/addTours' element={<AddTour/>}/>
+         </Route>
+       </Routes>
+     </div>
+   )
+  }
 };
 
 export default App;
+
+
+// <Route path='/admin' element={ <AdminLayout/>}>
+//   <Route path='/admin' element={ <AdminMain/>}/>
+//   <Route path='/admin/adminTours' element={<AdminTours/>}/>
+//   <Route path='/admin/adminUsers' element={<AdminUsers/>}/>
+//   <Route path='/admin/addTours' element={<AddTour/>}/>
+// </Route>
