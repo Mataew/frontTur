@@ -15,7 +15,10 @@ export default function profReducer (state = initialState, action) {
         case 'cart/postCart/fulfilled':
       return {
         ...state,
-          carts: action.payload,
+          carts: {
+            ...state.carts,
+            tur: action.payload
+          }
       };
       case "cart/loadCart/fulfilled":
         return {
