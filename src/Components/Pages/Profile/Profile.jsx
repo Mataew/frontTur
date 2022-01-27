@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./profile.module.css";
 import { Link } from "react-router-dom";
 import ProfileSlider from "./profileSlider/profileSlider";
-import { userLoad } from "../../../redux/features/profileReducer";
+import { deleteCart, userLoad } from "../../../redux/features/profileReducer";
 import { cartLoad } from "../../../redux/features/profileReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
@@ -17,7 +17,7 @@ const Profile = () => {
   useEffect(() => {
     dispatch(userLoad(token));
     dispatch(cartLoad());
-    dispatch(GetTurs())
+    dispatch(GetTurs());
   }, []);
 
   const handleCleanToken = () => {
@@ -30,19 +30,19 @@ const Profile = () => {
 
   const turs = useSelector((state) => state.turReducer.turs);
 
-  
+  // const tur = turs.find((item) => item._id === cart_Obj.tur);
 
-  const tur = turs.find((item) => item._id === cart_Obj.tur);
+  const handleDeleteCart = () => {
+    dispatch(deleteCart(cart_Obj?._id));
+  };
 
-  {turs.map((tur) => {
-    return cart_Obj.tur.map((cartTur) => {
-      if (tur._id === cartTur) {
-         console.log(tur);
-      }
-    });
-  })}
-
-  
+  // {turs.map((tur) => {
+  //   return cart_Obj.tur.map((cartTur) => {
+  //     if (tur._id === cartTur) {
+  //        console.log(tur);
+  //     }
+  //   });
+  // })}
 
   return (
     <div className={styles.Profile__wrapper}>
@@ -73,26 +73,61 @@ const Profile = () => {
             <div className={styles.Profile__wrapper__scroll}>
               <h1>Мои брони:</h1>
               <div className={styles.Profile__wrapper__scroll__order}>
-              {turs.map((tur) => {
-                    return cart_Obj.tur.map((cartTur) => {
-                      if (tur._id === cartTur) {
-                       return (
-                         <div>
-                           {tur.img}
-                           <img src={`http://localhost:7000/${tur.img}`} />
-                         </div>
-                       )
-                      }
-                    });
-                  })}
+                
+                {turs.map((tur) => {
+                  if (cart_Obj) {
+                    
+                  
+                  return cart_Obj?.tur.map((cartTur) => {
+                    if (tur._id === cartTur) {
+                      return (<>
+                        <button className="cart-deleteButton" onClick={() => handleDeleteCart()}>
+                        ⨉
+                      </button>
+                        <div className={styles.container}>
+                          <div className={styles.cart}>
+                            <div className={styles.block_Turimg}>
+                              <img
+                                src={`http://localhost:7000/${tur.img}`}
+                                alt=""
+                              />
+                            </div>
+                            <div className={styles.block_hotelInfo}>
+                              <div className={styles.hotel_cart}>
+                                <h4>Откуда: {tur.from}</h4>
+                                <h4>Куда: {tur.to}</h4>
+                                <h4>Дата вылета: {tur.data}</h4>
+                                <h4>Кол-во ночей: {tur.night}</h4>
+                                <h4>Количество человек: {tur.night}</h4>
+                                {/* <h4>Рейтинг: {star}</h4> */}
+                                <h4>Название Отеля: {tur.hotel.name}</h4>
+                                <div className={styles.block_hotelimg}>
+                                  <img
+                                    src={`http://localhost:7000/${tur.hotel.img}`}
+                                    alt=""
+                                  />
+                                </div>
+                                <h2 className={styles.price}>
+                                  Цена: {tur.price}
+                                </h2>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </>);
+                    }
+                  });} else  {
+                    return (
+                      <div>Пусто</div>
+                    )
+                  }
+                })}
                 <Carousel
                   showThumbs={false}
                   showIndicators={false}
                   showStatus={false}
                   className={styles.Profile_carousel_wrapper}
-                >
-                  
-                </Carousel>
+                ></Carousel>
               </div>
             </div>
           </>

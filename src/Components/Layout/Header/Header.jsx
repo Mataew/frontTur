@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './header.module.css'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
+import { useDispatch } from 'react-redux';
+import { userLoad } from '../../../redux/features/profileReducer';
 const Header = () => {
 
   const token = localStorage.getItem("token");
+
+  // const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(userLoad(token))
+  // })
 
   return (
     <header>

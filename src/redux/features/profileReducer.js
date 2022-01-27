@@ -17,7 +17,7 @@ export default function profReducer (state = initialState, action) {
         ...state,
           carts: {
             ...state.carts,
-            tur: action.payload
+            tur: [action.payload]
           }
       };
       case "cart/loadCart/fulfilled":
@@ -25,6 +25,11 @@ export default function profReducer (state = initialState, action) {
           ...state,
           carts: action.payload
         }
+        case "cart/delete/fulfilled":
+          return {
+            ...state,
+            carts: state.carts.id !== action.payload,
+          };
     default:
       return state;
   }
@@ -82,3 +87,20 @@ try {
 }
   }
 }
+
+
+export const deleteCart = (id) => {
+  return async (dispatch) => {
+    try {
+      await fetch(`http://localhost:7000/cart/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
+      dispatch({ type: "cart/delete/fulfilled", payload: id });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
