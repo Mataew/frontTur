@@ -89,6 +89,8 @@ export const createUser = (login, password, firstName, lastName) => {
 
 export const authUser = (login, password) => {
   return async (dispatch) => {
+
+    console.log(login, password)
     dispatch({ type: "application/signin/pending" });
 
     const response = await fetch("http://localhost:7000/login", {
@@ -115,8 +117,8 @@ export const authUser = (login, password) => {
 };
 
 export const logOut = () => {
-  return async (dispatch) => {
+  return (dispatch) => {
+    localStorage.removeItem('token');
     dispatch({ type: "application/logOut/fulfilled" });
-    localStorage.clear();
   };
 };

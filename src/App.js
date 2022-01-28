@@ -28,7 +28,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(userLoad(token))
-  }, [])
+  }, [dispatch, token])
   const user = useSelector(state => state.profReducer.user)
 
   if (!token) {
@@ -55,7 +55,7 @@ const App = () => {
            <Route path='/' element={<Main />} />
            <Route path='/company' element={<Company />}/>
            <Route path='/profile' element={<Profile />}/>
-           <Route path='/authorization' element={<Navigate to="/profile" replace />}/>
+           <Route path='/authorization' element={<Authorization />}/>
            <Route path='/contacts' element={<Contacts />}/>
            <Route path='/info' element={<Info />}/>
            <Route path='/hotels/:id' element={<Hotels />}/>

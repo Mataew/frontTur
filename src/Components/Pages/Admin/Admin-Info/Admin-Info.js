@@ -3,6 +3,7 @@ import styles from './admin-info.module.css';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../../../../redux/features/usersReducer';
+import { logOut } from '../../../../redux/reducerAuthorization';
 
 const AdminInfo = (props) => {
 
@@ -15,13 +16,14 @@ const AdminInfo = (props) => {
 
   const handleCleanToken = () => {
     localStorage.removeItem("token");
+    dispatch(logOut());
   }
 
   return (
     <div>
       <div className={ styles.back }>
         <Link to='/'>НА ГЛАВНУЮ</Link>
-        <Link to="/" onClick={() => handleCleanToken()}>
+        <Link to="/" onClick={handleCleanToken}>
           ВЫХОД ИЗ РЕЖИМА АДМИНА
         </Link>
       </div>
