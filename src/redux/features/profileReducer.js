@@ -3,7 +3,8 @@ const initialState = {
   error: null,
   loading: false,
   carts: {},
-  deleteCart: false
+  deleteCart: false,
+  onlyUser: {}
 };
 
 export default function profReducer (state = initialState, action) {
@@ -25,6 +26,11 @@ export default function profReducer (state = initialState, action) {
         return {
           ...state,
           carts: action.payload
+        }
+      case "user/onlyUser/fulfilled":
+        return {
+          ...state,
+          onlyUser: action.payload
         }
         case "cart/delete/fulfilled":
           return {
@@ -73,6 +79,21 @@ export const BuyTur = (tur) => {
     dispatch({type: 'cart/postCart/fulfilled', payload: json});
     } catch (e) {
       console.log(e);
+    }
+  };
+};
+
+export const onlyUser = (token) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`http://localhost:7000/user`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await response.json()
+      dispatch({type: "user/onlyUser/fulfilled", payload: data})
+    } catch (error) {
+      console.log(error.message);
     }
   };
 };
