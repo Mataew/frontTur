@@ -86,3 +86,14 @@
   border-radius: 10px;
   color: #0068b3ab;
 }
+
+.addToCart_dis {
+  text-decoration: none;
+  margin-left: 50px;
+  font-size: 25px;
+  color: #ffd53d;
+  border-radius: 10px;
+  padding: 10px;
+  transition: .3s;
+  cursor: default;
+}
