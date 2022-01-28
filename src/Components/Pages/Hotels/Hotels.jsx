@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import {useEffect} from 'react';
 import { GetByTur } from '../../../redux/features/turDesk';
 import { GetTurs } from "../../../redux/features/searchReducer"
-import { BuyTur } from "../../../redux/features/profileReducer"
+import profReducer, { BuyTur } from "../../../redux/features/profileReducer"
 import styles from './hotels.module.css'
 
 const Hotels = () => {
@@ -19,6 +19,10 @@ const Hotels = () => {
       }
     })
   const dispatch = useDispatch()
+
+  const cart = useSelector(state => state.profReducer.carts)
+
+  console.log(cart)
 
   const BuyTurs = (turId) => {
     if (!token) {
@@ -71,7 +75,7 @@ const Hotels = () => {
                     <img src={`http://localhost:7000/${el.hotel.img}`} alt="" />
                     </div>
                     <h2 className={styles.price}>Цена: {el.price}</h2>
-                    <Link to={!token ? '/authorization' : '/profile'} onClick={() => BuyTurs(el._id)} className={styles.addToCart}>В корзину</Link>
+                    <Link to={cart ? '' : !token ? '/authorization' : '/profile'} onClick={ cart ? '' : () => BuyTurs(el._id)} className={ cart ? styles.addToCart_dis : styles.addToCart}>{ cart ? 'Забронировано' : 'Забронировать'}</Link>
                   </div>
                   </div>
                   </div>
