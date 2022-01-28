@@ -3,7 +3,7 @@ import styles from './header.module.css'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { userLoad } from '../../../redux/features/profileReducer';
+import { onlyUser, userLoad } from '../../../redux/features/profileReducer';
 const Header = () => {
 
   const dispatch = useDispatch()
@@ -11,10 +11,11 @@ const Header = () => {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    dispatch(userLoad(token))
+    dispatch(onlyUser(token))
   }, [])
-  const user = useSelector(state => state.profReducer.user)
+  const user = useSelector(state => state.profReducer.onlyUser)
 
+  console.log(user.role)
 
   return (
     <header>
@@ -24,7 +25,7 @@ const Header = () => {
         <li><Link to='/'><img className={ styles.header_logo } src={ logo } alt=""/></Link></li>
         <li className={ styles.nav_item}><NavLink to='/contacts'>КОНТАКТЫ</NavLink></li>
       </ul>
-      { token ? user === 'User' ? <a className={ styles.button_profile} href='/profile'>ПРОФИЛЬ</a> : <a className={ styles.button_profile} href='/admin'>АДМИНКА</a> : <Link to='/authorization' className={ styles.authorization }>ВОЙТИ</Link>}
+      { token ? user.role === 'User' ? <a className={ styles.button_profile} href='/profile'>ПРОФИЛЬ</a> : <a className={ styles.button_profile} href='/admin'>АДМИНКА</a> : <Link to='/authorization' className={ styles.authorization }>ВОЙТИ</Link>}
     </header>
   );
 };

@@ -18,7 +18,7 @@ import AdminMain from './Components/Pages/Admin/Admin-Main/Admin-Main';
 import AdminTours from './Components/Pages/Admin/Admin-Tours/Admin-Tours';
 import AdminUsers from './Components/Pages/Admin/Admin-Users/Admin-Users';
 import AddTour from './Components/Pages/Admin/Admin-Tours/Add-Tour/Add-Tour';
-import profReducer, { userLoad } from './redux/features/profileReducer';
+import profReducer, { onlyUser, userLoad } from './redux/features/profileReducer';
 
 const App = () => {
 
@@ -27,9 +27,10 @@ const App = () => {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    dispatch(userLoad(token))
-  }, [dispatch, token])
-  const user = useSelector(state => state.profReducer.user)
+    dispatch(onlyUser(token))
+  }, [])
+  const user = useSelector(state => state.profReducer.onlyUser)
+
 
   if (!token) {
     return (
