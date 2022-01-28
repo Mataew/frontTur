@@ -7,6 +7,7 @@ import { cartLoad } from "../../../redux/features/profileReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import { GetTurs } from "../../../redux/features/searchReducer";
+import { logOut } from "../../../redux/reducerAuthorization";
 
 // страница для Профиля
 const Profile = () => {
@@ -21,6 +22,7 @@ const Profile = () => {
   }, []);
 
   const handleCleanToken = () => {
+    dispatch(logOut());
     localStorage.removeItem("token");
   };
 

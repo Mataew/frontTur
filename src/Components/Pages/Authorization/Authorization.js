@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authUser, createUser } from "../../../redux/reducerAuthorization";
 import { TextField } from "@mui/material";
 
@@ -27,6 +27,8 @@ const Authorization = () => {
   const signingUp = useSelector((state) => state.authorizatonReducer.signingUp);
   const err = useSelector((state) => state.authorizatonReducer.error);
   const signingIn = useSelector((state) => state.authorizatonReducer.signingIn);
+  const token = useSelector((state) => state.authorizatonReducer.token);
+
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstname] = useState("");
@@ -106,11 +108,11 @@ const Authorization = () => {
     setLastname(e.target.value);
   };
 
-  const handleSubmitAuth = () => {
+  const handleSubmitAuth = (e) => {
     dispatch(authUser(authLogin, authPassword));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     dispatch(createUser(login, password, firstName, lastName));
     setLogin("");
     setPassword("");
@@ -122,7 +124,11 @@ const Authorization = () => {
     }
   };
 
-  console.log()
+  const navigate = useNavigate();
+
+  if(token) {
+    navigate('/');
+  }
 
   return (
     <div className={bodyClass}>
@@ -142,9 +148,10 @@ const Authorization = () => {
           </section>
         </div>
         <div className={Switch}>
-          <form action="#" className="form form_signin">
+          <div className="form form_signin">
             <h3 className="form__title">Вход</h3>
             <p>
+            <h3 className="error">{err}</h3>
               {!NotAuthEmail ? (
                 <h3 className="error">{err}</h3>
               ) : (
@@ -173,14 +180,14 @@ const Authorization = () => {
             </p>
             <p>
 
-                    <a href='/' onClick={() => handleSubmitAuth()} className="form__btn">
+                    <button onClick={() => handleSubmitAuth()} className="form__btn">
                       Войти
-                    </a>
+                    </button>
 
             </p>
-          </form>
+          </div>
 
-          <form action="#" className="form form_signup">
+          <div className="form form_signup">
             <h3 className="form__title">Регистрация</h3>
             {!NotEmail ? (
               <h3 className="error">{err}</h3>
@@ -247,7 +254,7 @@ const Authorization = () => {
                 Зарегистрироваться
               </button>
             </p>
-          </form>
+          </div>
         </div>
       </acticle>
     </div>
