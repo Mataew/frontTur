@@ -76,8 +76,8 @@ const Profile = () => {
               <h1>Мои брони:</h1>
               <div className={styles.Profile__wrapper__scroll__order}>
                 
-                {turs.map((tur) => {
-                  if (cart_Obj) {
+                { cart_Obj ? turs.map((tur) => {
+                 
                     
                   
                   return cart_Obj?.tur.map((cartTur) => {
@@ -118,12 +118,8 @@ const Profile = () => {
                         </div>
                         </>);
                     }
-                  });} else  {
-                    return (
-                      <div>Пусто</div>
-                    )
-                  }
-                })}
+                  });
+                }) : <div>Пусто</div>}
                 <Carousel
                   showThumbs={false}
                   showIndicators={false}
