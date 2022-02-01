@@ -3,14 +3,10 @@ import styles from "./search.module.css";
 import fon from "../../../../assets/search_fon.png";
 import { useState } from "react";
 import { useEffect } from "react";
-import Aos from "aos";
-import "./search.css";
-import "aos/dist/aos.css";
 import { GetTurs } from "../../../../redux/features/searchReducer";
 import { GetByTur } from "../../../../redux/features/turDesk";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import gsap from 'gsap';
 
 const Search = () => {
   const turs = useSelector((state) => state.turReducer.turs);
@@ -53,19 +49,10 @@ const Search = () => {
   
   const e = err
 
-  gsap.to(".absolute_display" , {
-    // borderRadius: 50,
-    x: 100,
-    scale: 1.5,
-    duration:1
-  })
-
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetTurs());
   }, [dispatch]);
-  let star = "";
   return (
     <div
       className={styles.search_main}

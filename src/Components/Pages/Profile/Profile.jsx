@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./profile.module.css";
 import { Link } from "react-router-dom";
-import ProfileSlider from "./profileSlider/profileSlider";
 import { deleteCart, userLoad } from "../../../redux/features/profileReducer";
 import { cartLoad } from "../../../redux/features/profileReducer";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,14 +37,6 @@ const Profile = () => {
     dispatch(deleteCart(cart_Obj?._id));
   };
 
-  // {turs.map((tur) => {
-  //   return cart_Obj.tur.map((cartTur) => {
-  //     if (tur._id === cartTur) {
-  //        console.log(tur);
-  //     }
-  //   });
-  // })}
-
   return (
     <div className={styles.Profile__wrapper}>
       {user.map((item) => {
@@ -65,11 +56,6 @@ const Profile = () => {
               </div>
               <div className={styles.Profile__wrapper__profBlock__email}>
                 <p>{item.login}</p>
-              </div>
-              <div className={styles.Profile__wrapper__logOut}>
-                <Link to="/" onClick={() => handleCleanToken()}>
-                  Выйти из аккаунта
-                </Link>
               </div>
             </div>
             <div className={styles.Profile__wrapper__scroll}>
@@ -101,7 +87,6 @@ const Profile = () => {
                                 <h4>Дата вылета: {tur.data}</h4>
                                 <h4>Кол-во ночей: {tur.night}</h4>
                                 <h4>Количество человек: {tur.night}</h4>
-                                {/* <h4>Рейтинг: {star}</h4> */}
                                 <h4>Название Отеля: {tur.hotel.name}</h4>
                                 <div className={styles.block_hotelimg}>
                                   <img
@@ -120,12 +105,11 @@ const Profile = () => {
                     }
                   });
                 }) : <div>Пусто</div>}
-                <Carousel
-                  showThumbs={false}
-                  showIndicators={false}
-                  showStatus={false}
-                  className={styles.Profile_carousel_wrapper}
-                ></Carousel>
+              </div>
+              <div className={styles.Profile__wrapper__logOut}>
+                <Link to="/" onClick={() => handleCleanToken()}>
+                  Выйти из аккаунта
+                </Link>
               </div>
             </div>
           </>

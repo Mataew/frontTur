@@ -10,7 +10,6 @@ const Main = () => {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    // dispatch(getUsers())
     dispatch(userLoad(token))
   }, [])
   return (

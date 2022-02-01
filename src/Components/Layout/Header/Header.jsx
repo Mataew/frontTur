@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './header.module.css'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { onlyUser, userLoad } from '../../../redux/features/profileReducer';
+import { onlyUser } from '../../../redux/features/profileReducer';
 const Header = () => {
 
   const dispatch = useDispatch()
@@ -12,10 +12,8 @@ const Header = () => {
 
   useEffect(() => {
     dispatch(onlyUser(token))
-  }, [])
+  }, [dispatch, token])
   const user = useSelector(state => state.profReducer.onlyUser)
-
-  console.log(user.role)
 
   return (
     <header>
