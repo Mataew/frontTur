@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './company.module.css'
-import {Link} from 'react-router-dom'
-import Main from '../Main/Main'
 // СТРАНИЦА "О КОМПАНИИ"
 
 const Company = () => {

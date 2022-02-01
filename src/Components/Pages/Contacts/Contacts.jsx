@@ -54,9 +54,6 @@ const Contacts = () => {
           <p>Номер для связи: +7(999)-999-99-99</p>
         </div>
       </div>
-      {/* <div className={styles.map}>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.395035643997!2d45.69000361576993!3d43.32692208148494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4051d161eaa51e15%3A0x6bcd9e046629a7bd!2z0JjQvdGC0YPQutC-0LQ!5e0!3m2!1sru!2sru!4v1642750327006!5m2!1sru!2sru"></iframe>
-      </div> */}
     </div>
   );
 };

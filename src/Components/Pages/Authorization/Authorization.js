@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authUser, createUser } from "../../../redux/reducerAuthorization";
 import { TextField } from "@mui/material";
 
@@ -26,7 +26,6 @@ const Authorization = () => {
   const check = useSelector((state) => state.authorizatonReducer.check);
   const signingUp = useSelector((state) => state.authorizatonReducer.signingUp);
   const err = useSelector((state) => state.authorizatonReducer.error);
-  const signingIn = useSelector((state) => state.authorizatonReducer.signingIn);
   const token = useSelector((state) => state.authorizatonReducer.token);
 
   const [login, setLogin] = useState("");
@@ -43,7 +42,6 @@ const Authorization = () => {
   const [authBlurPassword, setAuthBlurPassword] = useState(true);
   const [authBlurFirstName, setAuthBlurFirstName] = useState(true);
   const [authBlurLastName, setAuthBlurLastName] = useState(true);
-  const [e, setE] = useState(signingIn);
 
   const handleBlurPassword = () => {
     password === "" ? setBlurPassword(false) : setBlurPassword(true);
@@ -74,7 +72,7 @@ const Authorization = () => {
   const handleAuthLogin = (e) => {
     setAuthLogin(e.target.value);
     const valid =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     if (!valid.test(String(e.target.value).toLowerCase())) {
       setNotAuthEmail("Некоректный емаил");
     } else {
@@ -89,7 +87,7 @@ const Authorization = () => {
   const handleChangeLogin = (e) => {
     setLogin(e.target.value);
     const valid =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     if (!valid.test(String(e.target.value).toLowerCase())) {
       setNotEmail("Некоректный емаил");
     } else {

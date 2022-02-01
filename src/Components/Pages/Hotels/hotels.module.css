@@ -9,7 +9,6 @@
 }
 .container {
     display: flex;
-    /* height: 800px; */
     background-color: #0067B3;
 }
 .block_hotelimg {

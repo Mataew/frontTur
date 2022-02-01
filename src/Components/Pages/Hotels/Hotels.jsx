@@ -5,12 +5,11 @@ import { Link, useParams } from 'react-router-dom';
 import {useEffect} from 'react';
 import { GetByTur } from '../../../redux/features/turDesk';
 import { GetTurs } from "../../../redux/features/searchReducer"
-import profReducer, { BuyTur } from "../../../redux/features/profileReducer"
+import { BuyTur } from "../../../redux/features/profileReducer"
 import styles from './hotels.module.css'
 
 const Hotels = () => {
   const token = localStorage.getItem('token')
-  const tur = useSelector((state) => state.byTurDesk.byTur);
   const turs = useSelector((state) => state.turReducer.turs);
     const id = useParams('id');
     const filteredTurs = turs.filter((item) => {
