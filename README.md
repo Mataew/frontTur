@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# WAY-TUR
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+> [Код](https://github.com/Mataew/WAY-TUR)
+<br>
 
-In the project directory, you can run:
+> [Демонстрация](https://way-tur-mern.herokuapp.com/)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2> Недельный командный проект </h2>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**«WayTur»** - сайт для турагентства в России. Позволяет просматривать доступные туры, сортируя их по рейтингу отеля из выбранного тура, цене, количеству людей и ночей.
 
-### `npm test`
+![image](https://github.com/Mataew/WAY-TUR/blob/main/gifs/сайт.gif)
+___
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+## На сайте также доступен просмотр доступных туров. Есть поиск по фильтрам ##
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![gif](https://github.com/Mataew/WAY-TUR/blob/main/gifs/поиск.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+___ 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+## Реализована авторизация как со стороны клиента, так и админа ##
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Регистрация клиента ###
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![gif](https://github.com/Mataew/WAY-TUR/blob/main/gifs/регистрация.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Бронирование тура ###
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![gif](https://github.com/Mataew/WAY-TUR/blob/main/gifs/Бронь%20тура.gif)
 
-## Learn More
+___
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Вход в роли Админа ###
 
-### Code Splitting
+![gif](https://github.com/Mataew/WAY-TUR/blob/main/gifs/админка.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
 
-### Analyzing the Bundle Size
+<p>
+  Админ может видеть и удалять список всех зарегистрированных пользователей на сайте. Также доступен просмотр всех туров, их изменение и добавление нового тура
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Список реализаций ###
 
-### Making a Progressive Web App
+* Авторизация | Регистрация
+* Поиск по фильтрам
+* Бронь тура / Удаление тура из корзины - со стороны клиента
+* Добавление тура / удаление тура / изменение тура - со стороны админа
+* Добавление отеля / удаление отеля / изменение отеля - со стороны админа
+* Вывод лучших туров в зависимости от рейтинга
+* Отметки доступынх туров на карте
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
 
-### Advanced Configuration
+### Использованные технологии: ###
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<p>
+  <img alt="React" src="https://img.shields.io/badge/-React-45b8d8?style=for-the-badge&logo=react&logoColor=white" />
+  <img alt="Github" src="https://img.shields.io/badge/-Github-black?style=for-the-badge&logo=github&logoColor=white" />
+  <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-764ABC?style=for-the-badge&logo=heroku&logoColor=white" />
+  <img alt="Redux" src="https://img.shields.io/badge/-Redux-430098?style=for-the-badge&logo=redux&logoColor=white" />
+  <img alt="Redux-Thunk" src="https://img.shields.io/badge/-Redux_Thunk-white?style=for-the-badge&logo=Redux&logoColor=430098" />
+   <img alt="React-Router" src="https://img.shields.io/badge/-React_Router-black?style=for-the-badge&logo=react-router&logoColor=orange" />
+  <img alt="Prettier" src="https://img.shields.io/badge/-Prettier-grey?style=for-the-badge&logo=Prettier&logoColor=orange" />
+  <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+  <img alt="Nodejs" src="https://img.shields.io/badge/-Nodejs-43853d?style=for-the-badge&logo=Node.js&logoColor=white" />
+  <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-yellow?style=for-the-badge&logo=JavaScript&logoColor=white" />
+  <img alt="Express" src="https://img.shields.io/badge/-express-black?style=for-the-badge&logo=express&logoColor=white" />
+    <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-green?style=for-the-badge&logo=MongoDB&logoColor=white" />
+    <img alt="EsLint" src="https://img.shields.io/badge/-EsLint-blue?style=for-the-badge&logo=EsLint&logoColor=white" />
+    <img alt="JsonWebToken" src="https://img.shields.io/badge/-JsonWebToken-black?style=for-the-badge&logo=JsonWebToken&logoColor=white" />
+    <img alt="MaterialUI" src="https://img.shields.io/badge/-MaterialUI-blue?style=for-the-badge&logo=MaterialUI&logoColor=white" />
+  </p>
 
-### Deployment
+___
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<br><br>
 
-### `npm run build` fails to minify
+#### Над проектом работали ####
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Хусейн ( https://github.com/Husseyn99 )
+2. Умар ( https://github.com/buguz228 )
+3. Тамерлан ( https://github.com/Raduev )
+4. Магомед-Эми ( https://github.com/MsvMe )
+5. Ибрагим ( https://github.com/Ibragim2023 )
+6. Халид ( https://github.com/barzaevhalid )
